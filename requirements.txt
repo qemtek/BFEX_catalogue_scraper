@@ -1,0 +1,6 @@
+boto3
+betfairlightweight
+pandas
+numpy
+awscli
+timeloop
