@@ -1,0 +1,8 @@
+flake8
+mypy
+pre-commit
+black
+betfairlightweight
+flumine 
+numpy
+pandas
