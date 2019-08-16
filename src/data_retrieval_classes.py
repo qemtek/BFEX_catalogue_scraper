@@ -160,9 +160,9 @@ class MarketCatalogueLogger(threading.Thread):
                         upload_to_s3(
                             file_dir + ".joblib",
                             os.path.join(
-                                "data",
-                                event_type,
-                                "market_catalogues",
+                                "marketdata",
+                                "catalogue",
+                                str(self.event_type_id),
                                 str(market_id) + ".joblib",
                             ),
                         )
