@@ -25,15 +25,49 @@ def get_venue_groups():
     """Get the groups for each horse racing venue (used to avoid hitting the
     limit on market subscriptions in the betfair exchange API)"""
     groups = {
-        'A': ['Southwell', 'Newcastle', 'Bath', 'Beverley', 'Newmarket',
-              'Catterick', 'Sandown', 'Chepstow'],
-        'B': ['Windsor', 'Nottingham', 'Leicester', 'Goodwood', 'York', 'Ayr',
-              'Thirsk', 'Chester', 'Ffos-Las'],
-        'C': ['Kempton', 'Doncaster', 'Brighton', 'Yarmouth', 'Ascot',
-              'Newbury', 'Musselburgh', 'Pontefract', 'Carlisle', 'Warwick'],
-        'D': ['Chelmsford', 'Haydock', 'Hamilton', 'Redcar', 'Ripon',
-              'Salisbury', 'Epsom', 'Wetherby', 'Lingfield']
+        "A": [
+            "Southwell",
+            "Newcastle",
+            "Bath",
+            "Beverley",
+            "Newmarket",
+            "Catterick",
+            "Sandown",
+            "Chepstow",
+        ],
+        "B": [
+            "Windsor",
+            "Nottingham",
+            "Leicester",
+            "Goodwood",
+            "York",
+            "Ayr",
+            "Thirsk",
+            "Chester",
+            "Ffos-Las",
+        ],
+        "C": [
+            "Kempton",
+            "Doncaster",
+            "Brighton",
+            "Yarmouth",
+            "Ascot",
+            "Newbury",
+            "Musselburgh",
+            "Pontefract",
+            "Carlisle",
+            "Warwick",
+        ],
+        "D": [
+            "Chelmsford",
+            "Haydock",
+            "Hamilton",
+            "Redcar",
+            "Ripon",
+            "Salisbury",
+            "Epsom",
+            "Wetherby",
+            "Lingfield",
+        ],
     }
     return groups
-
-
