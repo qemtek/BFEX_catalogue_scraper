@@ -1,9 +1,9 @@
-import os
 import logging
+import os
 
+from configuration import project_dir
 from src.data_retrieval_classes import FlumineStreamer
 from src.data_retrieval_classes import MarketCatalogueLogger
-from configuration import project_dir
 
 # Setup logging
 logging.basicConfig(level=logging.INFO)

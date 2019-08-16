@@ -1,15 +1,15 @@
-import os
 import logging
+import os
 
+from configuration import project_dir
 from src.data_retrieval_classes import FlumineStreamer
 from src.data_retrieval_classes import MarketCatalogueLogger
-from configuration import project_dir
 from src.utils import get_venue_groups
 
 # Setup logging
-logging.basicConfig(level=logging.INFO)
+# logging.basicConfig(level=logging.INFO)
 logging.getLogger("botocore").setLevel(logging.WARNING)
-# logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.DEBUG)
 
 # Define where the data will be stored
 data_dir = os.path.join(project_dir, "data", "horse_racing", "market_streaming")

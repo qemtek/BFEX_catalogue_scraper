@@ -1,5 +1,5 @@
-import os.path
 import errno
+import os.path
 
 
 # Taken from https://stackoverflow.com/a/600612/119527

@@ -1,18 +1,20 @@
+import datetime
 import os
 import pickle
-import time
-import betfairlightweight
 import threading
+import time
+
+import betfairlightweight
 import flumine
 from flumine.resources import MarketRecorder
 from flumine.storage import storageengine
-import datetime
-import zipfile
 
-from src.utils import safe_open, mkdir_p
-from src.s3_tools import upload_to_s3
-from configuration import project_dir, betfair_credentials
+from configuration import betfair_credentials
+from configuration import project_dir
 from configuration import s3_credentials
+from src.s3_tools import upload_to_s3
+from src.utils import mkdir_p
+from src.utils import safe_open
 
 # Get API credentials from configuration file
 username = betfair_credentials["betfairlightweight"].get("username")

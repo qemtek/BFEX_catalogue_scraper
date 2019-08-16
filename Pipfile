@@ -1,0 +1,22 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+flake8 = "*"
+mypy = "*"
+pre-commit = "*"
+black = "*"
+
+[packages]
+betfairlightweight = "*"
+flumine = "*"
+numpy = "*"
+pandas = "*"
+
+[requires]
+python_version = "3.6"
+
+[pipenv]
+allow_prereleases = true
