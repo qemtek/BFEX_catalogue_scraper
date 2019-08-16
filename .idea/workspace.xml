@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="06d9575c-3dc9-4641-bc01-36daed7cdc0d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/src/data_retrieval_classes.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_retrieval_classes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/market_streaming_racing.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/market_streaming_racing.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,8 +16,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/data_retrieval_classes.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="222">
-              <caret line="79" column="31" selection-start-line="79" selection-start-column="31" selection-end-line="79" selection-end-column="31" />
+            <state relative-caret-position="265">
+              <caret line="40" column="41" selection-start-line="40" selection-start-column="41" selection-end-line="40" selection-end-column="41" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -25,19 +26,34 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/market_streaming_racing.py">
+        <entry file="file://$PROJECT_DIR$/old/flumine_ex.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="54" selection-start-line="3" selection-start-column="54" selection-end-line="3" selection-end-column="54" />
+            <state relative-caret-position="988">
+              <caret line="76" column="39" selection-start-line="76" selection-start-column="39" selection-end-line="76" selection-end-column="39" />
+              <folding>
+                <element signature="e#0#14#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/market_streaming_racing.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="424">
+              <caret line="81" selection-start-line="81" selection-end-line="81" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/market_streaming_football.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="55" lean-forward="true" selection-start-line="13" selection-start-column="57" selection-end-line="13" selection-end-column="76" />
+            <state relative-caret-position="-163">
+              <caret line="27" column="28" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -115,6 +131,7 @@
       <find>dump</find>
       <find>open</find>
       <find>market_projection</find>
+      <find>venu</find>
       <find>market_cata</find>
     </findStrings>
   </component>
@@ -156,8 +173,8 @@
         <option value="$PROJECT_DIR$/src/utils.py" />
         <option value="$PROJECT_DIR$/s3_tools.py" />
         <option value="$PROJECT_DIR$/src/market_streaming_football.py" />
-        <option value="$PROJECT_DIR$/src/market_streaming_racing.py" />
         <option value="$PROJECT_DIR$/src/data_retrieval_classes.py" />
+        <option value="$PROJECT_DIR$/src/market_streaming_racing.py" />
       </list>
     </option>
   </component>
@@ -183,6 +200,11 @@
               <item name="betfair_exchange" type="b2602c69:ProjectViewProjectNode" />
               <item name="betfair_exchange" type="462c0819:PsiDirectoryNode" />
               <item name="data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="betfair_exchange" type="b2602c69:ProjectViewProjectNode" />
+              <item name="betfair_exchange" type="462c0819:PsiDirectoryNode" />
+              <item name="old" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="betfair_exchange" type="b2602c69:ProjectViewProjectNode" />
@@ -221,7 +243,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.market_streaming_football">
+  <component name="RunManager" selected="Python.market_streaming_racing">
     <configuration name="data_retrieval_classes" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="betfair_exchange" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -337,8 +359,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.market_streaming_football" />
         <item itemvalue="Python.market_streaming_racing" />
+        <item itemvalue="Python.market_streaming_football" />
         <item itemvalue="Python.data_retrieval_classes" />
         <item itemvalue="Python.streaming_football" />
         <item itemvalue="Python.flumine_ex" />
@@ -625,13 +647,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/lib/python3.6/site-packages/betfairlightweight/filters.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="70" column="4" selection-start-line="70" selection-start-column="4" selection-end-line="70" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/s3_tools.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -646,27 +661,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/data_retrieval_classes.py">
+    <entry file="file://$PROJECT_DIR$/venv/lib/python3.6/site-packages/betfairlightweight/filters.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="79" column="31" selection-start-line="79" selection-start-column="31" selection-end-line="79" selection-end-column="31" />
+        <state relative-caret-position="180">
+          <caret line="70" column="4" selection-start-line="70" selection-start-column="4" selection-end-line="70" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/market_streaming_football.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-163">
+          <caret line="27" column="28" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/market_streaming_racing.py">
+    <entry file="file://$PROJECT_DIR$/src/data_retrieval_classes.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="54" selection-start-line="3" selection-start-column="54" selection-end-line="3" selection-end-column="54" />
+        <state relative-caret-position="265">
+          <caret line="40" column="41" selection-start-line="40" selection-start-column="41" selection-end-line="40" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/market_streaming_football.py">
+    <entry file="file://$PROJECT_DIR$/old/flumine_ex.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="55" lean-forward="true" selection-start-line="13" selection-start-column="57" selection-end-line="13" selection-end-column="76" />
+        <state relative-caret-position="988">
+          <caret line="76" column="39" selection-start-line="76" selection-start-column="39" selection-end-line="76" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/market_streaming_racing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="424">
+          <caret line="81" selection-start-line="81" selection-end-line="81" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>

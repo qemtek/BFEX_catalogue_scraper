@@ -10,7 +10,7 @@ import datetime
 import zipfile
 
 from src.utils import safe_open, mkdir_p
-from s3_tools import upload_to_s3
+from src.s3_tools import upload_to_s3
 from configuration import project_dir, betfair_credentials
 from configuration import s3_credentials
 

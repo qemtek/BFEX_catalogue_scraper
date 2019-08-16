@@ -23,8 +23,8 @@ data_fields = [
     'EX_TRADED', 'EX_TRADED_VOL', 'EX_MARKET_DEF']
 market_projection = [
     'MARKET_START_TIME', 'RUNNER_DESCRIPTION', 'COMPETITION', 'EVENT',
-    'EVENT_TYPE', 'MARKET_START_TIME', 'MARKET_DESCRIPTION', 'RUNNER_METADATA']
-
+    'EVENT_TYPE', 'MARKET_START_TIME', 'MARKET_DESCRIPTION']
+market_projection2 = ['RUNNER_METADATA']
 
 """DOWNLOAD ODDS STREAM (odds data from each market)"""
 # Create the streamer objects
@@ -48,8 +48,8 @@ market_data_filter = {
 market_filters = {}
 for stream in stream_groups:
     market_filters[stream] = {
-        "bettingTypes": ["ODDS"], "eventTypeIds": event_type_ids,
-        "countryCodes": country_codes, "bspMarket": False,
+        "eventTypeIds": event_type_ids,
+        "countryCodes": country_codes,
         "marketTypes": market_types,
         "venues": venues[stream]
     }
