@@ -2,8 +2,10 @@ import logging
 import os
 
 from configuration import project_dir
-from src.data_retrieval_classes import FlumineStreamer
-from src.data_retrieval_classes import MarketCatalogueLogger
+from data_retrieval_classes import FlumineStreamer
+from data_retrieval_classes import MarketCatalogueLogger
+
+# Add relevant paths to the file system
 
 # Setup logging
 logging.basicConfig(level=logging.INFO)
@@ -24,9 +26,8 @@ market_projection = [
     "COMPETITION",
     "EVENT",
     "MARKET_DESCRIPTION",
-    "RUNNER_METADATA",
 ]
-
+market_projection2 = ["RUNNER_METADATA"]
 
 """DOWNLOAD ODDS STREAM (odds data from each market)"""
 # Create the streamer object
@@ -55,7 +56,6 @@ streamer.create_streamer(
 # Start the stream
 streamer.start()
 
-
 """DOWNLOAD MARKET CATALOGUES (information about each market)"""
 logger = MarketCatalogueLogger()
 # Create filters for the market catalogue
@@ -68,7 +68,15 @@ logger.create_logger(
 # Start listening for markets
 logger.start_logger()
 
-
-# Run indefinitely
-while True:
-    a = 1  # Do nothing
+"""META-DATA LOGGER"""
+logger2 = MarketCatalogueLogger()
+# Create filters for the market catalogue
+logger2.create_logger(
+    event_type_ids=event_type_ids,
+    country=country_codes,
+    market_types=market_types,
+    market_projection=market_projection2,
+)
+logger2.s3_folder = "metadata"
+# Start listening for markets
+logger2.start_logger()

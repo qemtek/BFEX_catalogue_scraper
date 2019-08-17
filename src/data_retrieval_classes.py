@@ -6,15 +6,14 @@ import time
 
 import betfairlightweight
 import flumine
-from flumine.resources import MarketRecorder
-from flumine.storage import storageengine
-
 from configuration import betfair_credentials
 from configuration import project_dir
 from configuration import s3_credentials
-from src.s3_tools import upload_to_s3
-from src.utils import mkdir_p
-from src.utils import safe_open
+from flumine.resources import MarketRecorder
+from flumine.storage import storageengine
+from s3_tools import upload_to_s3
+from utils import mkdir_p
+from utils import safe_open
 
 # Get API credentials from configuration file
 username = betfair_credentials["betfairlightweight"].get("username")
@@ -91,6 +90,7 @@ class MarketCatalogueLogger(threading.Thread):
         self.project_dir = project_dir
         # Log in
         self.trading.login()
+        self.s3_folder = "catalogue"
 
     def create_logger(self, event_type_ids, country, market_types, market_projection):
         """Define market filters, save them as class variables"""
@@ -143,7 +143,12 @@ class MarketCatalogueLogger(threading.Thread):
                     else:
                         event_type = "unknown"
                     market_cat_dir = os.path.join(
-                        self.project_dir, "data", event_type, "market_catalogues"
+                        self.project_dir,
+                        "data",
+                        event_type,
+                        "market_catalogues"
+                        if self.s3_folder == "catalogue"
+                        else "catalogue_meta",
                     )
                     # If the market directory does not exist, then create it
                     try:
@@ -161,7 +166,7 @@ class MarketCatalogueLogger(threading.Thread):
                             file_dir + ".joblib",
                             os.path.join(
                                 "marketdata",
-                                "catalogue",
+                                self.s3_folder,
                                 str(self.event_type_id),
                                 str(market_id) + ".joblib",
                             ),
@@ -170,5 +175,3 @@ class MarketCatalogueLogger(threading.Thread):
             print("Lost connection to server, retrying...")
         # Wait before checking again
         time.sleep(self.delay_seconds)
-
-    # ToDo: When the market closes, add a method to upload the file to S3

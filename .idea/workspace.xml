@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="06d9575c-3dc9-4641-bc01-36daed7cdc0d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/run_all_streamers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/data_retrieval_classes.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_retrieval_classes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/market_streaming_football.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/market_streaming_football.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/market_streaming_racing.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/market_streaming_racing.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -12,11 +16,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/data_retrieval_classes.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="162" column="46" selection-start-line="162" selection-start-column="46" selection-end-line="162" selection-end-column="46" />
+            <state relative-caret-position="2610">
+              <caret line="174" lean-forward="true" selection-start-line="174" selection-end-line="174" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -24,13 +28,13 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/market_streaming_racing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1350">
-              <caret line="90" lean-forward="true" selection-start-line="90" selection-end-line="90" />
+            <state relative-caret-position="1305">
+              <caret line="87" column="8" selection-start-line="87" selection-start-column="8" selection-end-line="87" selection-end-column="8" />
               <folding>
-                <element signature="e#0#9#0" expanded="true" />
+                <element signature="e#0#14#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -39,8 +43,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/market_streaming_football.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="474">
-              <caret line="74" lean-forward="true" selection-start-line="74" selection-end-line="74" />
+            <state relative-caret-position="294">
+              <caret line="71" column="8" selection-start-line="71" selection-start-column="8" selection-end-line="71" selection-end-column="8" />
+              <folding>
+                <element signature="e#0#14#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/run_all_streamers.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="10" selection-start-line="10" selection-end-line="12" selection-end-column="19" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -52,7 +68,7 @@
         <entry file="file://$PROJECT_DIR$/src/utils.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="30">
-              <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+              <caret line="2" selection-start-line="2" selection-end-line="2" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
               </folding>
@@ -135,9 +151,10 @@
         <option value="$PROJECT_DIR$/src/d.py" />
         <option value="$PROJECT_DIR$/src/utils.py" />
         <option value="$PROJECT_DIR$/s3_tools.py" />
+        <option value="$PROJECT_DIR$/src/run_all_streamers.py" />
+        <option value="$PROJECT_DIR$/src/data_retrieval_classes.py" />
         <option value="$PROJECT_DIR$/src/market_streaming_football.py" />
         <option value="$PROJECT_DIR$/src/market_streaming_racing.py" />
-        <option value="$PROJECT_DIR$/src/data_retrieval_classes.py" />
       </list>
     </option>
   </component>
@@ -207,7 +224,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.market_streaming_racing">
+  <component name="RunManager" selected="Python.run_all_streamers">
     <configuration name="data_retrieval_classes" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="betfair_exchange" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -221,28 +238,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/data_retrieval_classes.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="flumine_ex" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="betfair_exchange" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-        <env name="FLUMINE_DATA" value="'$PROJECT_DIR$/data'" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/flumine_ex.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -293,6 +288,27 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="run_all_streamers" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="betfair_exchange" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/run_all_streamers.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="streaming_football" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="betfair_exchange" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -316,18 +332,18 @@
     </configuration>
     <list>
       <item itemvalue="Python.data_retrieval_classes" />
-      <item itemvalue="Python.flumine_ex" />
       <item itemvalue="Python.market_streaming_football" />
       <item itemvalue="Python.market_streaming_racing" />
       <item itemvalue="Python.streaming_football" />
+      <item itemvalue="Python.run_all_streamers" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.run_all_streamers" />
         <item itemvalue="Python.market_streaming_racing" />
         <item itemvalue="Python.market_streaming_football" />
         <item itemvalue="Python.data_retrieval_classes" />
         <item itemvalue="Python.streaming_football" />
-        <item itemvalue="Python.flumine_ex" />
       </list>
     </recent_temporary>
   </component>
@@ -618,27 +634,17 @@
     <entry file="file://$PROJECT_DIR$/src/utils.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
-          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/market_streaming_racing.py">
+    <entry file="file://$PROJECT_DIR$/src/run_all_streamers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1350">
-          <caret line="90" lean-forward="true" selection-start-line="90" selection-end-line="90" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/market_streaming_football.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="474">
-          <caret line="74" lean-forward="true" selection-start-line="74" selection-end-line="74" />
+        <state relative-caret-position="150">
+          <caret line="10" selection-start-line="10" selection-end-line="12" selection-end-column="19" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
@@ -647,10 +653,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/data_retrieval_classes.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="162" column="46" selection-start-line="162" selection-start-column="46" selection-end-line="162" selection-end-column="46" />
+        <state relative-caret-position="2610">
+          <caret line="174" lean-forward="true" selection-start-line="174" selection-end-line="174" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/market_streaming_football.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="71" column="8" selection-start-line="71" selection-start-column="8" selection-end-line="71" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/market_streaming_racing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1305">
+          <caret line="87" column="8" selection-start-line="87" selection-start-column="8" selection-end-line="87" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
           </folding>
         </state>
       </provider>

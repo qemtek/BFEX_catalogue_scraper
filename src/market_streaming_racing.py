@@ -2,9 +2,11 @@ import logging
 import os
 
 from configuration import project_dir
-from src.data_retrieval_classes import FlumineStreamer
-from src.data_retrieval_classes import MarketCatalogueLogger
-from src.utils import get_venue_groups
+from data_retrieval_classes import FlumineStreamer
+from data_retrieval_classes import MarketCatalogueLogger
+from utils import get_venue_groups
+
+# Add relevant paths to the file system
 
 # Setup logging
 # logging.basicConfig(level=logging.INFO)
@@ -84,7 +86,15 @@ logger.create_logger(
 # Start listening for markets
 logger.start_logger()
 
-
-# Run indefinitely
-while True:
-    a = 1  # Do nothing
+"""META-DATA LOGGER"""
+logger2 = MarketCatalogueLogger()
+# Create filters for the market catalogue
+logger2.create_logger(
+    event_type_ids=event_type_ids,
+    country=country_codes,
+    market_types=market_types,
+    market_projection=market_projection2,
+)
+logger2.s3_folder = "metadata"
+# Start listening for markets
+logger2.start_logger()
