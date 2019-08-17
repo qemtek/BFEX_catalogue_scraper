@@ -22,7 +22,11 @@ def upload_to_s3(local_path, s3_path, bucket="betfair-exchange-qemtek"):
     """
 
     # Upload the file
-    s3_client = boto3.client("s3")
+    s3_client = boto3.client(
+        "s3",
+        aws_access_key_id=s3_credentials["access_key"],
+        aws_secret_access_key=s3_credentials["secret_key"],
+    )
     try:
         s3_client.upload_file(local_path, bucket, s3_path)
     except ClientError as e:
@@ -38,5 +42,9 @@ def download_from_s3(local_path, s3_path, bucket_name="betfair-exchange-qemtek")
         :param s3_path: S3 path
         """
 
-    s3 = boto3.client("s3")
+    s3 = boto3.client(
+        "s3",
+        aws_access_key_id=s3_credentials["access_key"],
+        aws_secret_access_key=s3_credentials["secret_key"],
+    )
     s3.download_file(bucket_name, s3_path, local_path)
