@@ -1,9 +1,9 @@
 import os
 import subprocess
 
-from src.configuration import football
-from src.configuration import project_dir
-from src.configuration import racing
+from configuration import football
+from configuration import project_dir
+from configuration import racing
 
 if racing:
     subprocess.call(
