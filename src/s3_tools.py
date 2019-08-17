@@ -2,9 +2,14 @@ import logging
 
 import boto3
 from botocore.exceptions import ClientError
+from configuration import s3_credentials
 
 # Let's use Amazon S3
-s3 = boto3.resource("s3")
+s3 = boto3.resource(
+    "s3",
+    aws_access_key_id=s3_credentials["access_key"],
+    aws_secret_access_key=s3_credentials["secret_key"],
+)
 
 
 # Upload a new file
