@@ -171,7 +171,9 @@ class MarketCatalogueLogger(threading.Thread):
                                 str(market_id) + ".joblib",
                             ),
                         )
+                # Wait before checking again
+                time.sleep(self.delay_seconds)
         except ConnectionError:
             print("Lost connection to server, retrying...")
-        # Wait before checking again
-        time.sleep(self.delay_seconds)
+            # Wait before checking again
+            time.sleep(self.delay_seconds)
