@@ -121,9 +121,9 @@ class MarketCatalogueLogger(threading.Thread):
     def _logger(self):
         """Main logger operation (user does not interact with this)"""
         try:
-            # Keep connection alive
-            self.trading.keep_alive()
             while self.__run_logger:
+                # Keep connection alive
+                self.trading.keep_alive()
                 # Get market catalogue with event info
                 market_catalogues = self.trading.betting.list_market_catalogue(
                     filter=self.event_filter,
