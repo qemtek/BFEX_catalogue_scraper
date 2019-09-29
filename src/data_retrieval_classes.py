@@ -171,6 +171,8 @@ class MarketCatalogueLogger(threading.Thread):
                                 str(market_id) + ".joblib",
                             ),
                         )
+                        # Delete the file from the folder
+                        os.remove(file_dir + ".joblib")
                 # Wait before checking again
                 time.sleep(self.delay_seconds)
         except ConnectionError:
