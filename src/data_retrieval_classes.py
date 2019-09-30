@@ -1,4 +1,5 @@
 import datetime
+import logging
 import os
 import pickle
 import threading
@@ -11,9 +12,18 @@ from configuration import project_dir
 from configuration import s3_credentials
 from flumine.resources import MarketRecorder
 from flumine.storage import storageengine
+from s3_tools import s3_dir_exists
 from s3_tools import upload_to_s3
 from utils import mkdir_p
 from utils import safe_open
+
+
+logging.basicConfig(level=logging.INFO)
+
+# ToDo: Add functionality that makes the code wait if it
+#  loses connection (and send an alert?)
+# ToDo: Add functionality that confirms that the file was uploaded
+#  to S3 after the command is executed
 
 # Get API credentials from configuration file
 username = betfair_credentials["betfairlightweight"].get("username")
@@ -27,9 +37,11 @@ class FlumineStreamer:
 
     def __init__(self):
         self.credentials = betfair_credentials
+        logging.info("Created instance of FlumineStreamer")
 
     def create_streamer(self, market_filter, market_data_filter):
         """Create a streaming object with the Flumine package"""
+        logging.info("Executing create_streamer()")
         self.market_filter = market_filter
         self.market_data_filter = market_data_filter
         # Define storage engine (to upload to S3)
@@ -66,6 +78,11 @@ class FlumineStreamer:
     def modify_save_location(data_dir):
         """Change the location that streaming data is stored in by monkey
         patching the FLUMINE_DATA variable inside the flumine package"""
+        logging.info(
+            "Overriding default save directory and replacing it with {}".format(
+                data_dir
+            )
+        )
         # Create the directory if it dosent exist
         mkdir_p(data_dir)
         # Override FLUMINE_DATA
@@ -79,6 +96,7 @@ class MarketCatalogueLogger(threading.Thread):
     Exchange API"""
 
     def __init__(self):
+        logging.info("Creating instance of MarketCatalogueLogger")
         self.delay_seconds = 60
         self.max_results = 500
         self.__run_logger = False
@@ -94,6 +112,7 @@ class MarketCatalogueLogger(threading.Thread):
 
     def create_logger(self, event_type_ids, country, market_types, market_projection):
         """Define market filters, save them as class variables"""
+        logging.info("Executing create_logger()")
         self.event_filter = betfairlightweight.filters.market_filter(
             event_type_ids=event_type_ids,
             market_countries=country,
@@ -103,18 +122,20 @@ class MarketCatalogueLogger(threading.Thread):
         self.event_type_id = str(event_type_ids[0])
         # Log the creation time of the streamer
         self.creation_time = datetime.datetime.now()
-        print("Market catalogue streamer created at {}".format(self.creation_time))
+        logging.info(
+            "Market catalogue streamer created at {}".format(self.creation_time)
+        )
 
     def start_logger(self):
         """Start logger thread"""
-        print("Starting market catalogue streamer")
+        logging.info("Starting market catalogue streamer")
         self.__run_logger = True
         self.thread = threading.Thread(target=self._logger)
         self.thread.start()
 
     def stop_logger(self):
         """Stop logger thread"""
-        print("Stopping market_catalogue streamer")
+        logging.info("Stopping market_catalogue streamer")
         self.__run_logger = False
         self.thread.join()
 
@@ -130,8 +151,8 @@ class MarketCatalogueLogger(threading.Thread):
                     market_projection=self.market_projection,
                     max_results=self.max_results,
                 )
-                print("Time: {}".format(str(datetime.datetime.now())))
-                print("Found {} catalogues".format(str(len(market_catalogues))))
+                logging.info("Time: {}".format(str(datetime.datetime.now())))
+                logging.info("Found {} catalogues".format(str(len(market_catalogues))))
 
                 for market_catalogue in market_catalogues:
                     # Only save these once per market. Find out if the market
@@ -141,7 +162,7 @@ class MarketCatalogueLogger(threading.Thread):
                     elif self.event_type_id == "1":
                         event_type = "football"
                     else:
-                        event_type = "unknown"
+                        event_type = "other"
                     market_cat_dir = os.path.join(
                         self.project_dir,
                         "data",
@@ -152,16 +173,30 @@ class MarketCatalogueLogger(threading.Thread):
                     )
                     # If the market directory does not exist, then create it
                     try:
+                        logging.info("Searching for {}".format(market_cat_dir))
                         market_dirs = os.listdir(market_cat_dir)
                     except FileNotFoundError:
+                        logging.info(
+                            "{} not found. Creating directory".format(market_cat_dir)
+                        )
                         mkdir_p(market_cat_dir)
                         market_dirs = []
                     market_id = market_catalogue.market_id
                     if market_id + ".joblib" not in market_dirs:
                         file_dir = os.path.join(market_cat_dir, str(market_id))
                         # Save market catalogue
+                        logging.info(
+                            "Saving market_id {} to {}".format(
+                                market_id, file_dir + ".joblib"
+                            )
+                        )
                         with safe_open(file_dir + ".joblib", "wb") as outfile:
                             outfile.write(pickle.dumps(market_catalogue))
+                            if os.path.exists(file_dir + ".joblib"):
+                                logging.info("File saved")
+                            else:
+                                logging.info("File NOT SAVED")
+                        logging.info("Attempting to upload saved file to S3")
                         upload_to_s3(
                             file_dir + ".joblib",
                             os.path.join(
@@ -171,6 +206,13 @@ class MarketCatalogueLogger(threading.Thread):
                                 str(market_id) + ".joblib",
                             ),
                         )
+                        # Search for the file in S3 then write the result to the logger
+                        if s3_dir_exists(file_dir + ".joblib"):
+                            logging.info("File found in S3, upload success :)")
+                        else:
+                            logging.info(
+                                "File not found in S3, something went wrong :("
+                            )
                         # Delete the file from the folder
                         os.remove(file_dir + ".joblib")
                 # Wait before checking again
