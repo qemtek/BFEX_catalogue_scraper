@@ -1,9 +1,13 @@
+import logging
 import os
 import subprocess
 
 from configuration import football
+from configuration import logging_level
 from configuration import project_dir
 from configuration import racing
+
+logging.basicConfig(level=logging_level)
 
 
 if racing:
