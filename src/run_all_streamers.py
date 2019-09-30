@@ -5,6 +5,7 @@ from configuration import football
 from configuration import project_dir
 from configuration import racing
 
+
 if racing:
     subprocess.Popen(
         "python3 {}.py".format(
