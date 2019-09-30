@@ -8,6 +8,7 @@ import time
 import betfairlightweight
 import flumine
 from configuration import betfair_credentials
+from configuration import logging_level
 from configuration import project_dir
 from configuration import s3_credentials
 from flumine.resources import MarketRecorder
@@ -18,12 +19,8 @@ from utils import mkdir_p
 from utils import safe_open
 
 
-logging.basicConfig(level=logging.INFO)
-
-# ToDo: Add functionality that makes the code wait if it
-#  loses connection (and send an alert?)
-# ToDo: Add functionality that confirms that the file was uploaded
-#  to S3 after the command is executed
+# Define logging level (set in the configuration file)
+logging.basicConfig(level=logging_level)
 
 # Get API credentials from configuration file
 username = betfair_credentials["betfairlightweight"].get("username")
@@ -179,8 +176,11 @@ class MarketCatalogueLogger(threading.Thread):
                         str(self.event_type_id),
                         str(market_id) + ".joblib",
                     )
-                    # Check if the file exists in S3 already
-                    if not s3_dir_exists(s3_dir):
+                    # Check if the file exists in S3 already, or one is present
+                    # locally because of a failed upload attempt
+                    s3_file_exists = s3_dir_exists(s3_dir)
+                    logging.info("{} exists: {}".format(s3_dir, str(s3_file_exists)))
+                    if not s3_file_exists or os.path.exists(file_dir):
                         # Save market catalogue
                         logging.info(
                             "Saving market_id {} to {}".format(market_id, file_dir)
@@ -196,12 +196,13 @@ class MarketCatalogueLogger(threading.Thread):
                         # Search for the file in S3 then write the result to the logger
                         if s3_dir_exists(s3_dir):
                             logging.info("File found in S3, upload success :)")
+                            # Delete the file from the folder (if it exists)
+                            if os.path.exists(file_dir):
+                                os.remove(file_dir)
                         else:
                             logging.info(
                                 "File not found in S3, something went wrong :("
                             )
-                        # Delete the file from the folder
-                        os.remove(file_dir)
                 # Wait before checking again
                 time.sleep(self.delay_seconds)
         except ConnectionError:
