@@ -171,50 +171,37 @@ class MarketCatalogueLogger(threading.Thread):
                         if self.s3_folder == "catalogue"
                         else "catalogue_meta",
                     )
-                    # If the market directory does not exist, then create it
-                    try:
-                        logging.info("Searching for {}".format(market_cat_dir))
-                        market_dirs = os.listdir(market_cat_dir)
-                    except FileNotFoundError:
-                        logging.info(
-                            "{} not found. Creating directory".format(market_cat_dir)
-                        )
-                        mkdir_p(market_cat_dir)
-                        market_dirs = []
                     market_id = market_catalogue.market_id
-                    if market_id + ".joblib" not in market_dirs:
-                        file_dir = os.path.join(market_cat_dir, str(market_id))
+                    file_dir = os.path.join(market_cat_dir, str(market_id)) + ".joblib"
+                    s3_dir = os.path.join(
+                        "marketdata",
+                        self.s3_folder,
+                        str(self.event_type_id),
+                        str(market_id) + ".joblib",
+                    )
+                    # Check if the file exists in S3 already
+                    if not s3_dir_exists(s3_dir):
                         # Save market catalogue
                         logging.info(
-                            "Saving market_id {} to {}".format(
-                                market_id, file_dir + ".joblib"
-                            )
+                            "Saving market_id {} to {}".format(market_id, file_dir)
                         )
-                        with safe_open(file_dir + ".joblib", "wb") as outfile:
+                        with safe_open(file_dir, "wb") as outfile:
                             outfile.write(pickle.dumps(market_catalogue))
-                            if os.path.exists(file_dir + ".joblib"):
+                            if os.path.exists(file_dir):
                                 logging.info("File saved")
                             else:
                                 logging.info("File NOT SAVED")
                         logging.info("Attempting to upload saved file to S3")
-                        upload_to_s3(
-                            file_dir + ".joblib",
-                            os.path.join(
-                                "marketdata",
-                                self.s3_folder,
-                                str(self.event_type_id),
-                                str(market_id) + ".joblib",
-                            ),
-                        )
+                        upload_to_s3(file_dir, s3_dir)
                         # Search for the file in S3 then write the result to the logger
-                        if s3_dir_exists(file_dir + ".joblib"):
+                        if s3_dir_exists(s3_dir):
                             logging.info("File found in S3, upload success :)")
                         else:
                             logging.info(
                                 "File not found in S3, something went wrong :("
                             )
                         # Delete the file from the folder
-                        os.remove(file_dir + ".joblib")
+                        os.remove(file_dir)
                 # Wait before checking again
                 time.sleep(self.delay_seconds)
         except ConnectionError:
