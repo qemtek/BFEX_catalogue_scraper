@@ -2,9 +2,7 @@ import logging
 import os
 
 from configuration import project_dir
-from data_retrieval_classes import FlumineStreamer
 from data_retrieval_classes import MarketCatalogueLogger
-from utils import get_venue_groups
 
 # Add relevant paths to the file system
 
@@ -39,40 +37,39 @@ market_projection = [
 ]
 market_projection2 = ["RUNNER_METADATA"]
 
-"""DOWNLOAD ODDS STREAM (odds data from each market)"""
-# Create the streamer objects
-stream_groups = ["A", "B", "C", "D"]
-venues = get_venue_groups()
-streamers = {}
-for stream in stream_groups:
-    streamers[stream] = FlumineStreamer()
-
-# Override the default save directory in each streamer
-for streamer in streamers.values():
-    streamer.modify_save_location(data_dir)
-
-# Define market data filter (what types of data we want from those markets)
-market_data_filter = {"fields": data_fields, "ladder_levels": 3}
-
-# Define market filters (what betting markets we want)
-market_filters = {}
-for stream in stream_groups:
-    market_filters[stream] = {
-        "eventTypeIds": event_type_ids,
-        "countryCodes": country_codes,
-        "marketTypes": market_types,
-        "venues": venues[stream],
-    }
-
-# Set up the stream using the filters we have defined and start the stream
-market_filter_iter = market_filters.values().__iter__()
-for streamer in streamers.values():
-    streamer.create_streamer(
-        market_filter=market_filter_iter.__next__(),
-        market_data_filter=market_data_filter,
-    )
-    streamer.start()
-
+# """DOWNLOAD ODDS STREAM (odds data from each market)"""
+# # Create the streamer objects
+# stream_groups = ["A", "B", "C", "D"]
+# venues = get_venue_groups()
+# streamers = {}
+# for stream in stream_groups:
+#     streamers[stream] = FlumineStreamer()
+#
+# # Override the default save directory in each streamer
+# for streamer in streamers.values():
+#     streamer.modify_save_location(data_dir)
+#
+# # Define market data filter (what types of data we want from those markets)
+# market_data_filter = {"fields": data_fields, "ladder_levels": 3}
+#
+# # Define market filters (what betting markets we want)
+# market_filters = {}
+# for stream in stream_groups:
+#     market_filters[stream] = {
+#         "eventTypeIds": event_type_ids,
+#         "countryCodes": country_codes,
+#         "marketTypes": market_types,
+#         "venues": venues[stream],
+#     }
+#
+# # Set up the stream using the filters we have defined and start the stream
+# market_filter_iter = market_filters.values().__iter__()
+# for streamer in streamers.values():
+#     streamer.create_streamer(
+#         market_filter=market_filter_iter.__next__(),
+#         market_data_filter=market_data_filter,
+#     )
+#     streamer.start()
 
 """DOWNLOAD MARKET CATALOGUES (information about each market)"""
 logger = MarketCatalogueLogger()

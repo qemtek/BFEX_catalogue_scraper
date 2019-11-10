@@ -2,3 +2,5 @@ data/*
 configuration.py
 old/*
 .DS_Store
+venv/*
+tmp/*
