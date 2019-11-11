@@ -15,10 +15,17 @@ logging.getLogger("botocore").setLevel(logging.WARNING)
 data_dir = os.path.join(project_dir, "data", "football", "market_streaming")
 
 # Define market options (what markets and what data we want to download)
-market_types = ["MATCH_ODDS"]
+market_types = ["CORRECT_SCORE"]
 event_type_ids = ["1"]
 country_codes = ["GB"]
-data_fields = ["EX_MARKET_DEF"]
+data_fields = [
+    "EX_BEST_OFFERS_DISP",
+    "EX_BEST_OFFERS",
+    "EX_ALL_OFFERS",
+    "EX_TRADED",
+    "EX_TRADED_VOL",
+    "EX_MARKET_DEF",
+]
 market_projection = [
     "MARKET_START_TIME",
     "RUNNER_DESCRIPTION",
