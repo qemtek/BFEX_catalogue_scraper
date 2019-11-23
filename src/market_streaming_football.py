@@ -15,9 +15,23 @@ logging.getLogger("botocore").setLevel(logging.WARNING)
 data_dir = os.path.join(project_dir, "data", "football", "market_streaming")
 
 # Define market options (what markets and what data we want to download)
-market_types = ["CORRECT_SCORE"]
+market_types = [
+    "CORRECT_SCORE",
+    "CORRECT_SCORE2",
+    "PENALTY_TAKEN",
+    "SENDING_OFF",
+    "MATCH_ODDS",
+    "OVER_UNDER_05",
+    "OVER_UNDER_15",
+    "OVER_UNDER_25",
+    "FIRST_GOAL_SCORER",
+    "CORNER_ODDS",
+    "OVER_UNDER_105_CORNR",
+    "OVER_UNDER_135_CORNR",
+]
+
 event_type_ids = ["1"]
-country_codes = ["GB"]
+country_codes = ["GB", "FR", "DE", "ES", "IT"]
 data_fields = [
     "EX_BEST_OFFERS_DISP",
     "EX_BEST_OFFERS",
