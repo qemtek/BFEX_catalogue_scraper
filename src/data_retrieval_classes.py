@@ -1,4 +1,5 @@
 import datetime
+import datetime as dt
 import logging
 import os
 import pickle
@@ -105,6 +106,7 @@ class MarketCatalogueLogger(threading.Thread):
         self.project_dir = project_dir
         # Log in
         self.trading.login()
+        self.last_keep_alive = dt.datetime.today()
         self.s3_folder = "catalogue"
 
     def create_logger(self, event_type_ids, country, market_types, market_projection):
@@ -140,8 +142,14 @@ class MarketCatalogueLogger(threading.Thread):
         """Main logger operation (user does not interact with this)"""
         try:
             while self.__run_logger:
-                # Keep connection alive
-                self.trading.keep_alive()
+                # Keep connection alive every hour (3600 seconds)
+                current_time = dt.datetime.today()
+                if (current_time - self.last_keep_alive).total_seconds() > 3600:
+                    try:
+                        self.trading.keep_alive()
+                    except betfairlightweight.exceptions.StatusCodeError:
+                        pass  # Do nothing
+
                 # Get market catalogue with event info
                 market_catalogues = self.trading.betting.list_market_catalogue(
                     filter=self.event_filter,
