@@ -140,11 +140,11 @@ class MarketCatalogueLogger(threading.Thread):
 
     def _logger(self):
         """Main logger operation (user does not interact with this)"""
-        try:
-            while self.__run_logger:
+        while self.__run_logger:
+            try:
                 # Keep connection alive every hour (3600 seconds)
                 current_time = dt.datetime.today()
-                if (current_time - self.last_keep_alive).total_seconds() > 3600:
+                if (current_time - self.last_keep_alive).total_seconds() > 600:
                     try:
                         self.trading.keep_alive()
                     except betfairlightweight.exceptions.StatusCodeError:
@@ -213,7 +213,7 @@ class MarketCatalogueLogger(threading.Thread):
                             )
                 # Wait before checking again
                 time.sleep(self.delay_seconds)
-        except ConnectionError:
-            print("Lost connection to server, retrying...")
-            # Wait before checking again
-            time.sleep(self.delay_seconds)
+            except ConnectionError:
+                print("Lost connection to server, retrying...")
+                # Wait before checking again
+                time.sleep(self.delay_seconds)
