@@ -1,0 +1,13 @@
+.git
+.gitignore
+node_modules
+npm-debug.log
+Dockerfile*
+docker-compose*
+README.md
+LICENSE
+.vscode
+bfx_market_catalogue_scraper.egg-info
+dist
+venv
+__pycache__

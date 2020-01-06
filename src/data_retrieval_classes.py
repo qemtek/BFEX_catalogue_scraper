@@ -7,86 +7,17 @@ import threading
 import time
 
 import betfairlightweight
-import flumine
-from configuration import betfair_credentials
-from configuration import logging_level
-from configuration import project_dir
-from configuration import s3_credentials
-from flumine.resources import MarketRecorder
-from flumine.storage import storageengine
-from s3_tools import s3_dir_exists
-from s3_tools import upload_to_s3
-from utils import mkdir_p
-from utils import safe_open
 
+from src.s3_tools import s3_dir_exists
+from src.s3_tools import upload_to_s3
+from src.utils import safe_open
 
-# Define logging level (set in the configuration file)
-logging.basicConfig(level=logging_level)
-
-# Get API credentials from configuration file
-username = betfair_credentials["betfairlightweight"].get("username")
-password = betfair_credentials["betfairlightweight"].get("password")
-app_key = betfair_credentials["betfairlightweight"].get("app_key")
-certs = betfair_credentials["betfairlightweight"].get("certs")
-
-
-class FlumineStreamer:
-    """Main class for streaming odds data from the Betfair Exchange API"""
-
-    def __init__(self):
-        self.credentials = betfair_credentials
-        logging.info("Created instance of FlumineStreamer")
-
-    def create_streamer(self, market_filter, market_data_filter):
-        """Create a streaming object with the Flumine package"""
-        logging.info("Executing create_streamer()")
-        self.market_filter = market_filter
-        self.market_data_filter = market_data_filter
-        # Define storage engine (to upload to S3)
-        self.storage_engine = storageengine.S3(
-            directory=s3_credentials["directory"],
-            access_key=s3_credentials["access_key"],
-            secret_key=s3_credentials["secret_key"],
-        )
-
-        # Define Flumine streaming object
-        self.flumine = flumine.Flumine(
-            recorder=MarketRecorder(
-                storage_engine=self.storage_engine,
-                market_filter=market_filter,
-                market_data_filter=market_data_filter,
-            ),
-            settings=self.credentials,
-        )
-        # Log the creation time of the streamer
-        self.creation_time = datetime.datetime.now()
-        print("Odds streamer created at {}".format(self.creation_time))
-
-    def start(self):
-        """Start the streamer"""
-        self.flumine.start()
-        print("Odds streamer started")
-
-    def stop(self):
-        """Stop the streamer"""
-        self.flumine.stop()
-        print("Odds streamer paused")
-
-    @staticmethod
-    def modify_save_location(data_dir):
-        """Change the location that streaming data is stored in by monkey
-        patching the FLUMINE_DATA variable inside the flumine package"""
-        logging.info(
-            "Overriding default save directory and replacing it with {}".format(
-                data_dir
-            )
-        )
-        # Create the directory if it dosent exist
-        mkdir_p(data_dir)
-        # Override FLUMINE_DATA
-        flumine.flumine.FLUMINE_DATA = data_dir
-        flumine.resources.recorder.FLUMINE_DATA = data_dir
-        flumine.storage.storageengine.FLUMINE_DATA = data_dir
+logger = logging.getLogger("marketCatalogueScraper")
+logger.setLevel(logging.INFO)
+logging.basicConfig(
+    format="%(asctime)s | %(levelname)s | %(message)s | %(filename)s | %(module)s",
+    level=logging.INFO,
+)
 
 
 class MarketCatalogueLogger(threading.Thread):
@@ -95,16 +26,20 @@ class MarketCatalogueLogger(threading.Thread):
 
     def __init__(self):
         logging.info("Creating instance of MarketCatalogueLogger")
+        # Define how long to wait before scanning the markets again
         self.delay_seconds = 60
-        self.max_results = 500
+        # Define the max number of results to return
+        self.max_results = 1000
         self.__run_logger = False
         threading.Thread.__init__(self, target=self._logger)
         # Create API Client object (to interact with betfair exchange)
+        username = os.environ.get("username")
+        password = os.environ.get("password")
+        app_key = os.environ.get("app_key")
+        certs = os.environ.get("certs")
         self.trading = betfairlightweight.APIClient(
             username=username, password=password, app_key=app_key, certs=certs
         )
-        self.project_dir = project_dir
-        # Log in
         self.trading.login()
         self.last_keep_alive = dt.datetime.today()
         self.s3_folder = "catalogue"
@@ -121,20 +56,20 @@ class MarketCatalogueLogger(threading.Thread):
         self.event_type_id = str(event_type_ids[0])
         # Log the creation time of the streamer
         self.creation_time = datetime.datetime.now()
-        logging.info(
+        logger.info(
             "Market catalogue streamer created at {}".format(self.creation_time)
         )
 
     def start_logger(self):
         """Start logger thread"""
-        logging.info("Starting market catalogue streamer")
+        logger.info("Starting market catalogue streamer")
         self.__run_logger = True
         self.thread = threading.Thread(target=self._logger)
         self.thread.start()
 
     def stop_logger(self):
         """Stop logger thread"""
-        logging.info("Stopping market_catalogue streamer")
+        logger.info("Stopping market_catalogue streamer")
         self.__run_logger = False
         self.thread.join()
 
@@ -156,8 +91,8 @@ class MarketCatalogueLogger(threading.Thread):
                     market_projection=self.market_projection,
                     max_results=self.max_results,
                 )
-                logging.info("Time: {}".format(str(datetime.datetime.now())))
-                logging.info("Found {} catalogues".format(str(len(market_catalogues))))
+                logger.info("Time: {}".format(str(datetime.datetime.now())))
+                logger.info("Found {} catalogues".format(str(len(market_catalogues))))
 
                 for market_catalogue in market_catalogues:
                     # Only save these once per market. Find out if the market
@@ -169,7 +104,6 @@ class MarketCatalogueLogger(threading.Thread):
                     else:
                         event_type = "other"
                     market_cat_dir = os.path.join(
-                        self.project_dir,
                         "data",
                         event_type,
                         "market_catalogues"
@@ -186,31 +120,31 @@ class MarketCatalogueLogger(threading.Thread):
                     )
                     # Check if the file exists in S3 already, or one is present
                     # locally because of a failed upload attempt
-                    s3_file_exists = s3_dir_exists(s3_dir)
-                    logging.info("{} exists: {}".format(s3_dir, str(s3_file_exists)))
+                    s3_file_exists = s3_dir_exists(
+                        s3_dir, bucket=os.environ["directory"]
+                    )
+                    logger.info("{} exists: {}".format(s3_dir, str(s3_file_exists)))
                     if not s3_file_exists or os.path.exists(file_dir):
                         # Save market catalogue
-                        logging.info(
+                        logger.info(
                             "Saving market_id {} to {}".format(market_id, file_dir)
                         )
                         with safe_open(file_dir, "wb") as outfile:
                             outfile.write(pickle.dumps(market_catalogue))
                             if os.path.exists(file_dir):
-                                logging.info("File saved")
+                                logger.info("File saved")
                             else:
-                                logging.info("File NOT SAVED")
-                        logging.info("Attempting to upload saved file to S3")
-                        upload_to_s3(file_dir, s3_dir)
+                                logger.info("File NOT SAVED")
+                        logger.info("Attempting to upload saved file to S3")
+                        upload_to_s3(file_dir, s3_dir, bucket=os.environ["directory"])
                         # Search for the file in S3 then write the result to the logger
                         if s3_dir_exists(s3_dir):
-                            logging.info("File found in S3, upload success :)")
+                            logger.info("File found in S3, upload success :)")
                             # Delete the file from the folder (if it exists)
                             if os.path.exists(file_dir):
                                 os.remove(file_dir)
                         else:
-                            logging.info(
-                                "File not found in S3, something went wrong :("
-                            )
+                            logger.info("File not found in S3, something went wrong :(")
                 # Wait before checking again
                 time.sleep(self.delay_seconds)
             except ConnectionError:

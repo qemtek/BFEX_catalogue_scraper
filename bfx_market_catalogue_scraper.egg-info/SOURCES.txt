@@ -1,0 +1,5 @@
+setup.py
+bfx_market_catalogue_scraper.egg-info/PKG-INFO
+bfx_market_catalogue_scraper.egg-info/SOURCES.txt
+bfx_market_catalogue_scraper.egg-info/dependency_links.txt
+bfx_market_catalogue_scraper.egg-info/top_level.txt
