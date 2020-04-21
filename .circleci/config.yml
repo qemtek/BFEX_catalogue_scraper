@@ -74,8 +74,7 @@ workflows:
   version: 2.1
   test-all:
     jobs:
-      -build:
-        - build_project
-        - install_and_decrypt:
-            working_directory: ~/project
+      - build_project
+      - install_and_decrypt:
+          working_directory: ~/project
       - test_project
