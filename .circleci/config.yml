@@ -32,16 +32,9 @@ executors:
 
 jobs:
   install_and_decrypt:
-    working_directory: ~/project
     description: Install and set up git secret, then reveal the secrets
     executor: default
-    parameters:
-      working_directory:
-        type: string
-        default: ~/project
-        description: working directory of the job
-
-    working_directory: << parameters.working_directory >>
+    working_directory: working_directory: ~/project
     steps:
       - attach_workspace:
           at: ./
