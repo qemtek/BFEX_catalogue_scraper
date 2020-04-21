@@ -22,7 +22,7 @@ commands:
   reveal_secrets:
     description: Reveal the secrets
     steps:
-      - run: (cd ~/project && git secret reveal -f)
+      - run: git secret reveal -f #(cd ~/project && git secret reveal -f)
 
 executors:
   default:
@@ -51,25 +51,31 @@ jobs:
           root: ./
           paths:
             - ./
-  test_project:
+  build_project:
     working_directory: ~/project
     docker:
         - image: circleci/python:3.7.2
     steps:
       - checkout
       - run:
-          name: Running Tests
+          name: Build Project
           command: |
             virtualenv venv
             . venv/bin/activate
             pip install --upgrade pip
             pip install -r requirements.txt
-            pytest -vv tests
+  test_project:
+    steps:
+      -run:
+        name: Run Tests
+        command: pytest -vv tests
 
 workflows:
   version: 2.1
   test-all:
     jobs:
-      - install_and_decrypt:
-          working_directory: ~/project
+      -build:
+        - build_project
+        - install_and_decrypt:
+            working_directory: ~/project
       - test_project
