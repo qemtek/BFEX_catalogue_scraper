@@ -17,9 +17,8 @@ logger = get_logger()
 
 
 class MarketCatalogueLogger(threading.Thread):
-    """Main class for downloading market catalogue data from the Betfair
-    Exchange API"""
-
+    """Main class for downloading market catalogue data from the Betfair Exchange API
+    """
     def __init__(self):
         logger.info("Creating instance of MarketCatalogueLogger")
         self.max_results = 500
@@ -36,8 +35,8 @@ class MarketCatalogueLogger(threading.Thread):
         self.s3_folder = "catalogue"
 
     def create_logger(self, event_type_ids, country, market_types, market_projection):
-        """Define market filters, save them as class variables"""
-
+        """Define market filters, save them as class variables
+        """
         logger.info("Executing create_logger()")
         self.event_filter = betfairlightweight.filters.market_filter(
             event_type_ids=event_type_ids,
@@ -51,16 +50,16 @@ class MarketCatalogueLogger(threading.Thread):
         logger.info("Market catalogue streamer created at {}".format(self.creation_time))
 
     def start_logger(self):
-        """Start logger thread"""
-
+        """Start logger thread
+        """
         logger.info("Starting market catalogue streamer")
         self.__run_logger = True
         self.thread = threading.Thread(target=self._logger)
         self.thread.start()
 
     def stop_logger(self):
-        """Stop logger thread"""
-
+        """Stop logger thread
+        """
         logger.info("Stopping market_catalogue streamer")
         self.__run_logger = False
         self.thread.join()
@@ -97,7 +96,7 @@ class MarketCatalogueLogger(threading.Thread):
         return market_cat_dir
 
     @staticmethod
-    #@retry(wait=wait_exponential(multiplier=1, min=2, max=10))
+    @retry(wait=wait_exponential(multiplier=1, min=2, max=10))
     def _save_to_s3(file, file_dir, s3_dir):
         # Check if the file exists in S3 already, or one is present locally
         # because of a failed upload attempt
@@ -160,8 +159,8 @@ class MarketCatalogueLogger(threading.Thread):
         self.last_catalogue_update = dt.datetime.now()
 
     def _logger(self):
-        """Main logger operation (user does not interact with this)"""
-
+        """Main logger operation (user does not interact with this)
+        """
         while self.__run_logger:
             # Keep connection alive every 10 minutes
             current_time = dt.datetime.now()
