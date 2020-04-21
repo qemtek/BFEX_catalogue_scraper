@@ -34,7 +34,7 @@ jobs:
   install_and_decrypt:
     description: Install and set up git secret, then reveal the secrets
     executor: default
-    working_directory: working_directory: ~/project
+    working_directory: ~/project
     steps:
       - attach_workspace:
           at: ./
