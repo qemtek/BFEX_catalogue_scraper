@@ -22,36 +22,16 @@ commands:
   reveal_secrets:
     description: Reveal the secrets
     steps:
-      - run: (cd ~/project && git secret reveal -f)
+      - run: git secret reveal -f #(cd ~/project && git secret reveal -f)
 
-executors:
-  default:
-    description: Job config
-    docker:
-      - image: circleci/node:10.16.3
+# executors:
+#   default:
+#     description: Job config
+#     docker:
+#       - image: circleci/node:10.16.3
 
 jobs:
-  install_and_decrypt:
-    description: Install and set up git secret, then reveal the secrets
-    executor: default
-    parameters:
-      working_directory:
-        type: string
-        default: ~
-        description: working directory of the job
-
-    working_directory: << parameters.working_directory >>
-    steps:
-      - attach_workspace:
-          at: ./
-      - install_git_secret
-      - import_gpg_key
-      - reveal_secrets
-      - persist_to_workspace:
-          root: ./
-          paths:
-            - ./
-  build_project:
+  build_and_test:
     working_directory: ~/project
     docker:
         - image: circleci/python:3.7.2
@@ -64,24 +44,27 @@ jobs:
             . venv/bin/activate
             pip install --upgrade pip
             pip install -r requirements.txt
+      - attach_workspace:
+          at: ./
+      - install_git_secret
+      - import_gpg_key
+      - reveal_secrets
+      - persist_to_workspace:
+          root: ./
+          paths:
+            - ./
+      - run:
+          name: Run Tests
+          command: pytest -vv tests
   test_project:
     working_directory: ~/project
     docker:
         - image: circleci/python:3.7.2
     steps:
-      - run:
-          name: Run Tests
-          command: pytest -vv tests
+      
 
 workflows:
   version: 2.1
   test-all:
     jobs:
-      - build_project
-      - install_and_decrypt:
-          working_directory: ~/project
-          requires: 
-            - build_project
-      - test_project:
-          requires: 
-            - install_and_decrypt
+      - build_and_test
