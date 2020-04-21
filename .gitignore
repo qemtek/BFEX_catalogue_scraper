@@ -7,3 +7,5 @@ tmp/*
 .idea/*
 __pycache__/*
 venv/*
+.gitsecret/keys/random_seed
+!*.secret

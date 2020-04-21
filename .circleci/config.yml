@@ -1,4 +1,4 @@
-version: 2
+version: 2.1
 jobs:
     test_project:
       working_directory: ~/project
@@ -14,8 +14,13 @@ jobs:
               pip install --upgrade pip
               pip install -r requirements.txt
               pytest -vv tests
+orbs:
+  git-secret: lyvly/git-secret@0.1.0
 workflows:
-  version: 2
+  version: 2.1
+  build:
+    jobs:
+      - git-secret/install_and_decrypt
   test-all:
     jobs:
       - test_project

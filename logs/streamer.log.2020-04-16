@@ -1,0 +1,63 @@
+2020-04-16 17:10:41,616 — src.utils.logging — INFO —__init__:24 — Creating instance of MarketCatalogueLogger
+2020-04-16 17:10:42,057 — src.utils.logging — INFO —create_logger:41 — Executing create_logger()
+2020-04-16 17:10:42,057 — src.utils.logging — INFO —create_logger:51 — Market catalogue streamer created at 2020-04-16 17:10:42.057484
+2020-04-16 17:10:42,057 — src.utils.logging — INFO —start_logger:56 — Starting market catalogue streamer
+2020-04-16 17:10:42,057 — src.utils.logging — INFO —_logger:176 — Time since data was last scraped: 3600.000485. Running again
+2020-04-16 17:11:21,340 — src.utils.logging — INFO —__init__:24 — Creating instance of MarketCatalogueLogger
+2020-04-16 17:11:21,736 — src.utils.logging — INFO —create_logger:41 — Executing create_logger()
+2020-04-16 17:11:21,736 — src.utils.logging — INFO —create_logger:51 — Market catalogue streamer created at 2020-04-16 17:11:21.736505
+2020-04-16 17:11:21,736 — src.utils.logging — INFO —start_logger:56 — Starting market catalogue streamer
+2020-04-16 17:11:21,736 — src.utils.logging — INFO —_logger:176 — Time since data was last scraped: 3600.000616. Running again
+2020-04-16 17:11:41,493 — src.utils.logging — INFO —__init__:24 — Creating instance of MarketCatalogueLogger
+2020-04-16 17:11:42,059 — src.utils.logging — INFO —create_logger:41 — Executing create_logger()
+2020-04-16 17:11:42,059 — src.utils.logging — INFO —create_logger:51 — Market catalogue streamer created at 2020-04-16 17:11:42.059809
+2020-04-16 17:11:42,059 — src.utils.logging — INFO —start_logger:56 — Starting market catalogue streamer
+2020-04-16 17:11:42,060 — src.utils.logging — INFO —_logger:176 — Time since data was last scraped: 3600.000439. Running again
+2020-04-16 17:12:45,476 — src.utils.logging — INFO —__init__:24 — Creating instance of MarketCatalogueLogger
+2020-04-16 17:12:45,881 — src.utils.logging — INFO —create_logger:41 — Executing create_logger()
+2020-04-16 17:12:45,881 — src.utils.logging — INFO —create_logger:51 — Market catalogue streamer created at 2020-04-16 17:12:45.881961
+2020-04-16 17:12:45,882 — src.utils.logging — INFO —start_logger:56 — Starting market catalogue streamer
+2020-04-16 17:12:45,882 — src.utils.logging — INFO —_logger:176 — Time since data was last scraped: 3600.000479. Running again
+2020-04-16 17:12:46,196 — src.utils.logging — INFO —_get_event_data:131 — Found 173 catalogues
+2020-04-16 17:16:28,411 — src.utils.logging — INFO —__init__:24 — Creating instance of MarketCatalogueLogger
+2020-04-16 17:16:28,816 — src.utils.logging — INFO —create_logger:41 — Executing create_logger()
+2020-04-16 17:16:28,816 — src.utils.logging — INFO —create_logger:51 — Market catalogue streamer created at 2020-04-16 17:16:28.816216
+2020-04-16 17:16:28,816 — src.utils.logging — INFO —start_logger:56 — Starting market catalogue streamer
+2020-04-16 17:16:28,816 — src.utils.logging — INFO —_logger:176 — Time since data was last scraped: 3600.000543. Running again
+2020-04-16 17:16:29,155 — src.utils.logging — INFO —_get_event_data:131 — Found 173 catalogues
+2020-04-16 17:17:46,277 — src.utils.logging — INFO —__init__:24 — Creating instance of MarketCatalogueLogger
+2020-04-16 17:17:46,774 — src.utils.logging — INFO —create_logger:41 — Executing create_logger()
+2020-04-16 17:17:46,774 — src.utils.logging — INFO —create_logger:51 — Market catalogue streamer created at 2020-04-16 17:17:46.774149
+2020-04-16 17:17:46,774 — src.utils.logging — INFO —start_logger:56 — Starting market catalogue streamer
+2020-04-16 17:17:46,774 — src.utils.logging — INFO —_logger:176 — Time since data was last scraped: 3600.000413. Running again
+2020-04-16 17:17:47,124 — src.utils.logging — INFO —_get_event_data:131 — Found 173 catalogues
+2020-04-16 17:17:47,395 — src.utils.logging — INFO —_save_to_s3:105 — lw_marketdata/catalogue/7/1.170302436.joblib exists: True
+2020-04-16 17:17:47,543 — src.utils.logging — INFO —_save_to_s3:105 — lw_marketdata/catalogue/7/1.170302437.joblib exists: True
+2020-04-16 17:17:47,680 — src.utils.logging — INFO —_save_to_s3:105 — lw_marketdata/catalogue/7/1.170302438.joblib exists: True
+2020-04-16 17:17:47,840 — src.utils.logging — INFO —_save_to_s3:105 — lw_marketdata/catalogue/7/1.170302439.joblib exists: True
+2020-04-16 17:17:48,011 — src.utils.logging — INFO —_save_to_s3:105 — lw_marketdata/catalogue/7/1.170302440.joblib exists: True
+2020-04-16 17:17:48,191 — src.utils.logging — INFO —_save_to_s3:105 — lw_marketdata/catalogue/7/1.170302441.joblib exists: True
+2020-04-16 17:17:48,641 — src.utils.logging — INFO —_save_to_s3:105 — lw_marketdata/catalogue/7/1.170301562.joblib exists: True
+2020-04-16 17:17:48,781 — src.utils.logging — INFO —_save_to_s3:105 — lw_marketdata/catalogue/7/1.170302442.joblib exists: True
+2020-04-16 17:17:48,950 — src.utils.logging — INFO —_save_to_s3:105 — lw_marketdata/catalogue/7/1.170301564.joblib exists: True
+2020-04-16 17:17:49,086 — src.utils.logging — INFO —_save_to_s3:105 — lw_marketdata/catalogue/7/1.170302443.joblib exists: True
+2020-04-16 17:17:49,231 — src.utils.logging — INFO —_save_to_s3:105 — lw_marketdata/catalogue/7/1.170301566.joblib exists: True
+2020-04-16 17:17:49,392 — src.utils.logging — INFO —_save_to_s3:105 — lw_marketdata/catalogue/7/1.170302444.joblib exists: True
+2020-04-16 17:17:49,539 — src.utils.logging — INFO —_save_to_s3:105 — lw_marketdata/catalogue/7/1.170300075.joblib exists: True
+2020-04-16 17:17:49,695 — src.utils.logging — INFO —_save_to_s3:105 — lw_marketdata/catalogue/7/1.170300670.joblib exists: True
+2020-04-16 17:17:49,854 — src.utils.logging — INFO —_save_to_s3:105 — lw_marketdata/catalogue/7/1.170300267.joblib exists: True
+2020-04-16 17:17:50,017 — src.utils.logging — INFO —_save_to_s3:105 — lw_marketdata/catalogue/7/1.170300624.joblib exists: True
+2020-04-16 17:17:50,180 — src.utils.logging — INFO —_save_to_s3:105 — lw_marketdata/catalogue/7/1.170302445.joblib exists: True
+2020-04-16 17:17:50,323 — src.utils.logging — INFO —_save_to_s3:105 — lw_marketdata/catalogue/7/1.170301568.joblib exists: True
+2020-04-16 17:17:50,484 — src.utils.logging — INFO —_save_to_s3:105 — lw_marketdata/catalogue/7/1.170302318.joblib exists: True
+2020-04-16 17:17:50,637 — src.utils.logging — INFO —_save_to_s3:105 — lw_marketdata/catalogue/7/1.170300077.joblib exists: True
+2020-04-16 17:17:50,784 — src.utils.logging — INFO —_save_to_s3:105 — lw_marketdata/catalogue/7/1.170300672.joblib exists: True
+2020-04-16 17:17:50,923 — src.utils.logging — INFO —_save_to_s3:105 — lw_marketdata/catalogue/7/1.170300269.joblib exists: True
+2020-04-16 17:17:51,066 — src.utils.logging — INFO —_save_to_s3:105 — lw_marketdata/catalogue/7/1.170300626.joblib exists: True
+2020-04-16 17:17:51,211 — src.utils.logging — INFO —_save_to_s3:105 — lw_marketdata/catalogue/7/1.170302320.joblib exists: True
+2020-04-16 17:17:51,342 — src.utils.logging — INFO —_save_to_s3:105 — lw_marketdata/catalogue/7/1.170301570.joblib exists: True
+2020-04-16 17:17:51,493 — src.utils.logging — INFO —_save_to_s3:105 — lw_marketdata/catalogue/7/1.170300079.joblib exists: True
+2020-04-16 17:17:51,638 — src.utils.logging — INFO —_save_to_s3:105 — lw_marketdata/catalogue/7/1.170300674.joblib exists: True
+2020-04-16 17:17:51,780 — src.utils.logging — INFO —_save_to_s3:105 — lw_marketdata/catalogue/7/1.170300271.joblib exists: True
+2020-04-16 17:17:51,902 — src.utils.logging — INFO —_save_to_s3:105 — lw_marketdata/catalogue/7/1.170302322.joblib exists: True
+2020-04-16 17:17:52,043 — src.utils.logging — INFO —_save_to_s3:105 — lw_marketdata/catalogue/7/1.170300628.joblib exists: True
