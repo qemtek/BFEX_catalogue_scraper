@@ -1,5 +1,6 @@
 version: 2.1
 
+
 commands:
   install_git_secret:
     description: Install git secret cli
@@ -34,7 +35,13 @@ jobs:
   install_and_decrypt:
     description: Install and set up git secret, then reveal the secrets
     executor: default
-    working_directory: ~/project
+    parameters:
+      working_directory:
+        type: string
+        default: ~/project
+        description: working directory of the job
+
+    working_directory: << parameters.working_directory >>
     steps:
       - attach_workspace:
           at: ./
