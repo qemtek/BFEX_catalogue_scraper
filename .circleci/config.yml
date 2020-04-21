@@ -80,6 +80,8 @@ workflows:
       - build_project
       - install_and_decrypt:
           working_directory: ~/project
-          requires: build_project
+          requires: 
+            - build_project
       - test_project:
-          requires: install_and_decrypt
+          requires: 
+            - install_and_decrypt
