@@ -134,8 +134,9 @@ class MarketCatalogueLogger(threading.Thread):
         for market_catalogue in market_catalogues:
             # Only log races that are 10min away from occuring, because some data is not updated
             # until closer to the race (like going)
+            time_now = pd.Series(pd.to_datetime(dt.datetime.now())).dt.tz_localize('UTC').loc[0]
             mst = pd.to_datetime(market_catalogue.get('marketStartTime'))
-            if (mst - dt.datetime.now()).total_seconds() < 600:
+            if (mst - time_now).total_seconds() < 600:
                 # Only save these once per market. Find out if the market
                 # already exists in the filesystem, if it does then skip
                 market_cat_dir = self.get_market_cat_dir()
@@ -147,9 +148,6 @@ class MarketCatalogueLogger(threading.Thread):
         # Upload race cards
         race_cards = self.trading.race_card.get_race_card(market_ids=market_ids, lightweight=True)
         for race_card in race_cards:
-            mst = pd.to_datetime(race_card.get('marketStartTime'))
-            if (mst - dt.datetime.now()).total_seconds() < 600:
-
             race_card_dir = self.get_race_card_dir()
             race_id = race_card.get('race').get('raceIdExchange')
             file_dir = f"{race_card_dir}/{race_id}.joblib"
