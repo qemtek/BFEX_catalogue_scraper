@@ -5,6 +5,7 @@ from src.utils.configuration import get_attribute
 
 # Project credentials
 PROJECT_DIR = get_attribute('PROJECT_DIR')
+os.environ['PYTHONPATH'] = PROJECT_DIR
 print(f"Project dir: {PROJECT_DIR}")
 db_dir = os.path.join(PROJECT_DIR, 'data', 'hr_db.sqlite')
 model_dir = os.path.join(PROJECT_DIR, 'models')
