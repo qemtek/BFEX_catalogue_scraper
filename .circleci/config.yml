@@ -24,4 +24,5 @@ workflows:
   test-all:
     jobs:
       - git-secret/install_and_decrypt
+        working_directory: ~/project
       - test_project
