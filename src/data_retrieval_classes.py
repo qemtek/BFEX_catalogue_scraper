@@ -1,5 +1,6 @@
 import datetime
 import datetime as dt
+import pandas as pd
 from tenacity import retry, wait_exponential
 import os
 import pickle
@@ -131,17 +132,24 @@ class MarketCatalogueLogger(threading.Thread):
         market_ids = []
         # Upload market catalogues
         for market_catalogue in market_catalogues:
-            # Only save these once per market. Find out if the market
-            # already exists in the filesystem, if it does then skip
-            market_cat_dir = self.get_market_cat_dir()
-            market_id = str(market_catalogue.get('marketId'))
-            market_ids.append(market_id)
-            file_dir = f"{market_cat_dir}/{market_id}.joblib"
-            s3_dir = f"lw_marketdata/{self.s3_folder}/{str(self.event_type_id)}/{str(market_id)}.joblib"
-            self._save_to_s3(file=market_catalogue, file_dir=file_dir, s3_dir=s3_dir)
+            # Only log races that are 10min away from occuring, because some data is not updated
+            # until closer to the race (like going)
+            mst = pd.to_datetime(market_catalogue.get('marketStartTime'))
+            if (mst - dt.datetime.now()).total_seconds() < 600:
+                # Only save these once per market. Find out if the market
+                # already exists in the filesystem, if it does then skip
+                market_cat_dir = self.get_market_cat_dir()
+                market_id = str(market_catalogue.get('marketId'))
+                market_ids.append(market_id)
+                file_dir = f"{market_cat_dir}/{market_id}.joblib"
+                s3_dir = f"lw_marketdata/{self.s3_folder}/{str(self.event_type_id)}/{str(market_id)}.joblib"
+                self._save_to_s3(file=market_catalogue, file_dir=file_dir, s3_dir=s3_dir)
         # Upload race cards
         race_cards = self.trading.race_card.get_race_card(market_ids=market_ids, lightweight=True)
         for race_card in race_cards:
+            mst = pd.to_datetime(race_card.get('marketStartTime'))
+            if (mst - dt.datetime.now()).total_seconds() < 600:
+
             race_card_dir = self.get_race_card_dir()
             race_id = race_card.get('race').get('raceIdExchange')
             file_dir = f"{race_card_dir}/{race_id}.joblib"
