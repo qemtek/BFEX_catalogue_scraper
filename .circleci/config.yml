@@ -24,7 +24,8 @@ commands:
     steps:
       - run: |
         ls
-        git secret reveal -f #(cd ~/project && git secret reveal -f)
+        git secret reveal -f 
+      #(cd ~/project && git secret reveal -f)
 
 # executors:
 #   default:
