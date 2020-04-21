@@ -22,7 +22,7 @@ commands:
   reveal_secrets:
     description: Reveal the secrets
     steps:
-      - run: git secret reveal -f #(cd ~/project && git secret reveal -f)
+      - run: . git secret reveal -f #(cd ~/project && git secret reveal -f)
 
 # executors:
 #   default:
