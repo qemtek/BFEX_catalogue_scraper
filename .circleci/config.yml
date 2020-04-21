@@ -69,9 +69,9 @@ jobs:
     docker:
         - image: circleci/python:3.7.2
     steps:
-      -run:
-        name: Run Tests
-        command: pytest -vv tests
+      - run:
+          name: Run Tests
+          command: pytest -vv tests
 
 workflows:
   version: 2.1
