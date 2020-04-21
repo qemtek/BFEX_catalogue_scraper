@@ -14,10 +14,7 @@ jobs:
             . venv/bin/activate
             pip install --upgrade pip
             pip install -r requirements.txt
-      - run:
-          name: Run Tests
-          command: pytest -vv tests
-
+            pytest -vv tests
 workflows:
   version: 2.1
   test-all:
