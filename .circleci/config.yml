@@ -32,6 +32,7 @@ executors:
 
 jobs:
   install_and_decrypt:
+    working_directory: ~/project
     description: Install and set up git secret, then reveal the secrets
     executor: default
     parameters:
