@@ -22,7 +22,7 @@ commands:
   reveal_secrets:
     description: Reveal the secrets
     steps:
-      - run: git secret reveal -f #(cd ~/project && git secret reveal -f)
+      - run: (cd ~/project && git secret reveal -f)
 
 executors:
   default:
@@ -80,4 +80,6 @@ workflows:
       - build_project
       - install_and_decrypt:
           working_directory: ~/project
-      - test_project
+          requires: build_project
+      - test_project:
+          requires: install_and_decrypt
