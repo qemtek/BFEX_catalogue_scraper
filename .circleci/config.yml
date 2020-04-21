@@ -14,7 +14,7 @@ jobs:
               pip install --upgrade pip
               pip install -r requirements.txt
               py.test -vv tests
-workflow:
+workflows:
   version: 2
   test-all:
     jobs:
