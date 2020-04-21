@@ -3,6 +3,19 @@ version: 2.1
 orbs:
   git-secret: lyvly/git-secret@0.1.0
 
+
+
+commands:
+  import_gpg_key:
+    description: Import gpg key from env var
+    parameters:
+      variable_name:
+        type: env_var_name
+        default: GPG_KEY # TODO: pass through job
+        description: environment variable containing gpg key
+    steps:
+      - run: echo -e "$<< parameters.variable_name >>" | gpg --import --no-tty --batch --yes
+
 jobs:
   test_project:
     working_directory: ~/project
