@@ -23,6 +23,6 @@ workflows:
   version: 2.1
   test-all:
     jobs:
-      - git-secret/install_and_decrypt
-        working_directory: ~/project
+      - git-secret/install_and_decrypt:
+          working_directory: ~/project
       - test_project
