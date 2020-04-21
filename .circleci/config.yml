@@ -2,18 +2,18 @@ version: 2
 jobs:
     test_project:
       working_directory: ~/project
-    docker:
-        - image: circleci/python:3.7.2
-    steps:
-      - checkout
-      - run:
-          name: Running Tests
-          command: |
-            virtualenv venv
-            . venv/bin/activate
-            pip install --upgrade pip
-            pip install -r requirements.txt
-            py.test -vv tests
+      docker:
+          - image: circleci/python:3.7.2
+      steps:
+        - checkout
+        - run:
+            name: Running Tests
+            command: |
+              virtualenv venv
+              . venv/bin/activate
+              pip install --upgrade pip
+              pip install -r requirements.txt
+              py.test -vv tests
 workflow:
   version: 2
   test-all:
