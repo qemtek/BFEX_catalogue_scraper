@@ -119,7 +119,7 @@ class MarketCatalogueLogger(threading.Thread):
             else:
                 logger.info("File not found in S3, something went wrong :(")
 
-    #@retry(wait=wait_exponential(multiplier=1, min=2, max=50))
+    @retry(wait=wait_exponential(multiplier=1, min=2, max=50))
     def _get_event_data(self):
         # Get market catalogue with event info
         market_catalogues = self.trading.betting.list_market_catalogue(
