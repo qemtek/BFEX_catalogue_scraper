@@ -13,7 +13,7 @@ jobs:
             ls
             sudo apt-get install bsdmainutils
             sudo apt install curl jq		#Ubuntu/Debian
-            ip = $(curl https://ipinfo.io/ip)
+            ip="$(curl https://ipinfo.io/ip)"
             echo curl https://ipvigilante.com/${ip}
 
             virtualenv venv
