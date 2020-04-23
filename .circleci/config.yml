@@ -14,7 +14,12 @@ jobs:
             . venv/bin/activate
             pip install --upgrade pip
             pip install -r requirements.txt
-
+            # Unencrypt files
+            git clone https://github.com/elasticdog/transcrypt.git
+            sudo ln -s transcrypt/transcrypt /usr/local/bin/transcrypt
+            transcrypt -c $TRANSCRYPT_CYPHER -p $TRANSCRYPT_PASSWORD
+            export BFEX_CERTS_DIR = certs
+            export PROJECT_DIR = .
             pytest -vv tests
 workflows:
   version: 2.1

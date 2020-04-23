@@ -1,5 +1,4 @@
 bfex_scraper/data/*
-bfex_scraper/configuration.py
 bfex_scraper/old/*
 .DS_Store
 venv/*

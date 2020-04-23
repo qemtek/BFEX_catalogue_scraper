@@ -1,3 +1,4 @@
 # Auto detect text files and perform LF normalization
 * text=auto
 certs/*  filter=crypt diff=crypt
+bfex_scraper/configuration.py  filter=crypt diff=crypt
