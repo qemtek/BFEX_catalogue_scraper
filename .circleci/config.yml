@@ -14,9 +14,11 @@ jobs:
             . venv/bin/activate
             pip install --upgrade pip
             pip install -r requirements.txt
+
             pytest -vv tests
 workflows:
   version: 2.1
   test-all:
     jobs:
-      - build_and_test
+      - build_and_test:
+          context: bfex_project

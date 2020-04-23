@@ -1,6 +1,7 @@
 from bfex_scraper.src.data_retrieval_classes import MarketCatalogueLogger
 from bfex_scraper.settings import MARKET_PROJECTION, MARKET_TYPES, EVENT_TYPE_IDS, COUNTRY_CODES
 
+
 def test_s3_credentials():
     try:
         import boto3
@@ -21,6 +22,7 @@ def test_bfex_credentials():
         trading.login()
     except:
         assert False, 'Cannot log into the Betfair Exchange API'
+
 
 def test_list_market_catalogue():
     try:
@@ -56,3 +58,4 @@ def test_save_to_s3():
     s3_dir = 'test_file.csv'
     mcl._save_to_s3(file=test_file, file_dir=test_file_dir, s3_dir=s3_dir)
     assert s3_dir_exists(s3_dir), 'Saved file cannot be found in S3'
+    # ToDo: Delete file in cleanup
