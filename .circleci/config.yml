@@ -10,12 +10,13 @@ jobs:
       - run:
           name: Build Project
           command: |
-            ls
-            sudo apt-get install bsdmainutils
+            # Show IP address of server
             sudo apt install curl jq		#Ubuntu/Debian
             ip="$(curl https://ipinfo.io/ip)"
-            echo curl https://ipvigilante.com/${ip}
-
+            echo 'IP Address of host:
+            curl https://ipvigilante.com/${ip}
+            # Setup environment and test
+            sudo apt-get install bsdmainutils
             virtualenv venv
             . venv/bin/activate
             pip install --upgrade pip
