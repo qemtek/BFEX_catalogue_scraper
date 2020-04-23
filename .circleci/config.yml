@@ -18,6 +18,7 @@ jobs:
             git clone https://github.com/elasticdog/transcrypt.git
             sudo ln -s transcrypt/transcrypt /usr/local/bin/transcrypt
             transcrypt -c $TRANSCRYPT_CYPHER -p $TRANSCRYPT_PASSWORD
+            # Override defaults
             export BFEX_CERTS_DIR = certs
             export PROJECT_DIR = .
             pytest -vv tests
