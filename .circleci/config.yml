@@ -21,7 +21,7 @@ jobs:
             cd transcrypt
             sudo ln -s ${PWD}/transcrypt /usr/local/bin/transcrypt
             cd ..
-            transcrypt -c $TRANSCRYPT_CYPHER -p $TRANSCRYPT_PASSWORD
+            transcrypt -c $TRANSCRYPT_CYPHER -p $TRANSCRYPT_PASSWORD -y -F
             # Override defaults
             export BFEX_CERTS_DIR = certs
             export PROJECT_DIR = .
