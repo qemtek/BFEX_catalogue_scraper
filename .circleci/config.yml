@@ -23,8 +23,8 @@ jobs:
             cd ..
             transcrypt -c $TRANSCRYPT_CYPHER -p $TRANSCRYPT_PASSWORD -y -F
             # Override defaults
-            export BFEX_CERTS_DIR=certs
-            export PROJECT_DIR=.
+            export BFEX_CERTS_DIR=/home/circleci/project/certs
+            export PROJECT_DIR=/home/circleci/project
             pytest -vv tests
 workflows:
   version: 2.1
