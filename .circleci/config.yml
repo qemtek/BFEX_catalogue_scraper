@@ -13,9 +13,6 @@ jobs:
             ls
             sudo apt-get install bsdmainutils
             sudo apt install curl jq		#Ubuntu/Debian
-            sudo yum install curl jq		#CentOS/RHEL
-            sudo dnf install curl jq		#Fedora 22+
-            sudo zypper install curl jq		#openSUSE
             ip = $(curl https://ipinfo.io/ip)
             echo curl https://ipvigilante.com/${ip}
 
