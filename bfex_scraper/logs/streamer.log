@@ -1,0 +1,125 @@
+2020-04-21 11:48:08,720 — src.utils.logging — INFO —__init__:23 — Creating instance of MarketCatalogueLogger
+2020-04-21 11:49:00,968 — src.utils.logging — INFO —__init__:23 — Creating instance of MarketCatalogueLogger
+2020-04-21 11:49:01,496 — src.utils.logging — INFO —_save_to_s3:104 — test_file.csv exists: False
+2020-04-21 11:49:01,496 — src.utils.logging — INFO —_save_to_s3:108 — Saving file /Users/chriscollins/Documents/GitHub/betfair_exchange_data_engineering/tests/test_file.csv to test_file.csv
+2020-04-21 11:49:02,814 — src.utils.logging — INFO —_save_to_s3:114 — File found in S3, upload success.
+2020-04-21 11:51:35,769 — src.utils.logging — INFO —__init__:23 — Creating instance of MarketCatalogueLogger
+2020-04-21 11:51:36,403 — src.utils.logging — INFO —_save_to_s3:104 — test_file.csv exists: True
+2020-04-21 19:08:16,436 — src.utils.logging — INFO —__init__:24 — Creating instance of MarketCatalogueLogger
+2020-04-21 19:08:17,455 — src.utils.logging — INFO —create_logger:41 — Executing create_logger()
+2020-04-21 19:08:17,455 — src.utils.logging — INFO —create_logger:51 — Market catalogue streamer created at 2020-04-21 19:08:17.455764
+2020-04-21 19:08:17,455 — src.utils.logging — INFO —start_logger:56 — Starting market catalogue streamer
+2020-04-21 19:08:17,456 — src.utils.logging — INFO —_logger:182 — Time since data was last scraped: 3600.000561. Running again
+2020-04-21 19:08:18,484 — src.utils.logging — INFO —_get_event_data:131 — Found 124 catalogues
+2020-04-21 19:08:20,878 — src.utils.logging — INFO —_get_event_data:131 — Found 124 catalogues
+2020-04-21 19:08:25,179 — src.utils.logging — INFO —_get_event_data:131 — Found 124 catalogues
+2020-04-21 19:08:33,475 — src.utils.logging — INFO —_get_event_data:131 — Found 124 catalogues
+2020-04-21 19:08:49,773 — src.utils.logging — INFO —_get_event_data:131 — Found 124 catalogues
+2020-04-21 19:09:08,138 — src.utils.logging — INFO —__init__:24 — Creating instance of MarketCatalogueLogger
+2020-04-21 19:09:08,586 — src.utils.logging — INFO —create_logger:41 — Executing create_logger()
+2020-04-21 19:09:08,586 — src.utils.logging — INFO —create_logger:51 — Market catalogue streamer created at 2020-04-21 19:09:08.586949
+2020-04-21 19:09:08,587 — src.utils.logging — INFO —start_logger:56 — Starting market catalogue streamer
+2020-04-21 19:09:08,587 — src.utils.logging — INFO —_logger:182 — Time since data was last scraped: 3600.000669. Running again
+2020-04-21 19:09:08,992 — src.utils.logging — INFO —_get_event_data:131 — Found 124 catalogues
+2020-04-21 19:10:19,241 — src.utils.logging — INFO —__init__:24 — Creating instance of MarketCatalogueLogger
+2020-04-21 19:10:20,322 — src.utils.logging — INFO —create_logger:41 — Executing create_logger()
+2020-04-21 19:10:20,322 — src.utils.logging — INFO —create_logger:51 — Market catalogue streamer created at 2020-04-21 19:10:20.322568
+2020-04-21 19:10:20,322 — src.utils.logging — INFO —start_logger:56 — Starting market catalogue streamer
+2020-04-21 19:10:20,323 — src.utils.logging — INFO —_logger:182 — Time since data was last scraped: 3600.000693. Running again
+2020-04-21 19:10:21,042 — src.utils.logging — INFO —_get_event_data:131 — Found 124 catalogues
+2020-04-21 19:10:58,913 — src.utils.logging — INFO —__init__:24 — Creating instance of MarketCatalogueLogger
+2020-04-21 19:10:59,344 — src.utils.logging — INFO —create_logger:41 — Executing create_logger()
+2020-04-21 19:10:59,344 — src.utils.logging — INFO —create_logger:51 — Market catalogue streamer created at 2020-04-21 19:10:59.344621
+2020-04-21 19:10:59,344 — src.utils.logging — INFO —start_logger:56 — Starting market catalogue streamer
+2020-04-21 19:10:59,345 — src.utils.logging — INFO —_logger:182 — Time since data was last scraped: 3600.000669. Running again
+2020-04-21 19:10:59,632 — src.utils.logging — INFO —_get_event_data:131 — Found 124 catalogues
+2020-04-21 19:11:32,573 — src.utils.logging — INFO —__init__:24 — Creating instance of MarketCatalogueLogger
+2020-04-21 19:11:32,968 — src.utils.logging — INFO —create_logger:41 — Executing create_logger()
+2020-04-21 19:11:32,968 — src.utils.logging — INFO —create_logger:51 — Market catalogue streamer created at 2020-04-21 19:11:32.968718
+2020-04-21 19:11:32,968 — src.utils.logging — INFO —start_logger:56 — Starting market catalogue streamer
+2020-04-21 19:11:32,969 — src.utils.logging — INFO —_logger:183 — Time since data was last scraped: 3600.000678. Running again
+2020-04-21 19:11:33,262 — src.utils.logging — INFO —_get_event_data:131 — Found 124 catalogues
+2020-04-21 19:11:49,725 — src.utils.logging — INFO —__init__:24 — Creating instance of MarketCatalogueLogger
+2020-04-21 19:11:50,145 — src.utils.logging — INFO —create_logger:41 — Executing create_logger()
+2020-04-21 19:11:50,145 — src.utils.logging — INFO —create_logger:51 — Market catalogue streamer created at 2020-04-21 19:11:50.145790
+2020-04-21 19:11:50,145 — src.utils.logging — INFO —start_logger:56 — Starting market catalogue streamer
+2020-04-21 19:11:50,146 — src.utils.logging — INFO —_logger:183 — Time since data was last scraped: 3600.000678. Running again
+2020-04-21 19:11:50,457 — src.utils.logging — INFO —_get_event_data:131 — Found 124 catalogues
+2020-04-21 19:12:08,933 — src.utils.logging — INFO —__init__:24 — Creating instance of MarketCatalogueLogger
+2020-04-21 19:12:09,352 — src.utils.logging — INFO —create_logger:41 — Executing create_logger()
+2020-04-21 19:12:09,352 — src.utils.logging — INFO —create_logger:51 — Market catalogue streamer created at 2020-04-21 19:12:09.352907
+2020-04-21 19:12:09,353 — src.utils.logging — INFO —start_logger:56 — Starting market catalogue streamer
+2020-04-21 19:12:09,353 — src.utils.logging — INFO —_logger:183 — Time since data was last scraped: 3600.000625. Running again
+2020-04-21 19:12:09,635 — src.utils.logging — INFO —_get_event_data:131 — Found 124 catalogues
+2020-04-21 19:12:27,202 — src.utils.logging — INFO —__init__:24 — Creating instance of MarketCatalogueLogger
+2020-04-21 19:12:27,634 — src.utils.logging — INFO —create_logger:41 — Executing create_logger()
+2020-04-21 19:12:27,634 — src.utils.logging — INFO —create_logger:51 — Market catalogue streamer created at 2020-04-21 19:12:27.634820
+2020-04-21 19:12:27,635 — src.utils.logging — INFO —start_logger:56 — Starting market catalogue streamer
+2020-04-21 19:12:27,639 — src.utils.logging — INFO —_logger:183 — Time since data was last scraped: 3600.005268. Running again
+2020-04-21 19:12:27,919 — src.utils.logging — INFO —_get_event_data:131 — Found 124 catalogues
+2020-04-21 19:13:44,151 — src.utils.logging — INFO —__init__:24 — Creating instance of MarketCatalogueLogger
+2020-04-21 19:13:44,638 — src.utils.logging — INFO —create_logger:41 — Executing create_logger()
+2020-04-21 19:13:44,639 — src.utils.logging — INFO —create_logger:51 — Market catalogue streamer created at 2020-04-21 19:13:44.638983
+2020-04-21 19:13:44,639 — src.utils.logging — INFO —start_logger:56 — Starting market catalogue streamer
+2020-04-21 19:13:44,640 — src.utils.logging — INFO —_logger:183 — Time since data was last scraped: 3600.001972. Running again
+2020-04-21 19:13:44,964 — src.utils.logging — INFO —_get_event_data:131 — Found 124 catalogues
+2020-04-21 19:14:37,745 — src.utils.logging — INFO —__init__:24 — Creating instance of MarketCatalogueLogger
+2020-04-21 19:14:39,191 — src.utils.logging — INFO —create_logger:41 — Executing create_logger()
+2020-04-21 19:14:39,191 — src.utils.logging — INFO —create_logger:51 — Market catalogue streamer created at 2020-04-21 19:14:39.191702
+2020-04-21 19:14:39,191 — src.utils.logging — INFO —start_logger:56 — Starting market catalogue streamer
+2020-04-21 19:14:39,192 — src.utils.logging — INFO —_logger:183 — Time since data was last scraped: 3600.000589. Running again
+2020-04-21 19:14:39,644 — src.utils.logging — INFO —_get_event_data:131 — Found 124 catalogues
+2020-04-21 19:17:08,745 — src.utils.logging — INFO —__init__:24 — Creating instance of MarketCatalogueLogger
+2020-04-21 19:17:10,181 — src.utils.logging — INFO —create_logger:41 — Executing create_logger()
+2020-04-21 19:17:10,182 — src.utils.logging — INFO —create_logger:51 — Market catalogue streamer created at 2020-04-21 19:17:10.182120
+2020-04-21 19:17:10,182 — src.utils.logging — INFO —start_logger:56 — Starting market catalogue streamer
+2020-04-21 19:17:10,182 — src.utils.logging — INFO —_logger:181 — Time since data was last scraped: 3600.00083. Running again
+2020-04-21 19:17:10,520 — src.utils.logging — INFO —_get_event_data:131 — Found 124 catalogues
+2020-04-21 19:17:35,987 — src.utils.logging — INFO —__init__:24 — Creating instance of MarketCatalogueLogger
+2020-04-21 19:17:36,393 — src.utils.logging — INFO —create_logger:41 — Executing create_logger()
+2020-04-21 19:17:36,393 — src.utils.logging — INFO —create_logger:51 — Market catalogue streamer created at 2020-04-21 19:17:36.393589
+2020-04-21 19:17:36,393 — src.utils.logging — INFO —start_logger:56 — Starting market catalogue streamer
+2020-04-21 19:17:36,393 — src.utils.logging — INFO —_logger:181 — Time since data was last scraped: 3600.000569. Running again
+2020-04-21 19:17:36,696 — src.utils.logging — INFO —_get_event_data:131 — Found 124 catalogues
+2020-04-21 19:18:00,344 — src.utils.logging — INFO —__init__:24 — Creating instance of MarketCatalogueLogger
+2020-04-21 19:18:00,737 — src.utils.logging — INFO —create_logger:41 — Executing create_logger()
+2020-04-21 19:18:00,737 — src.utils.logging — INFO —create_logger:51 — Market catalogue streamer created at 2020-04-21 19:18:00.737739
+2020-04-21 19:18:00,737 — src.utils.logging — INFO —start_logger:56 — Starting market catalogue streamer
+2020-04-21 19:18:00,738 — src.utils.logging — INFO —_logger:181 — Time since data was last scraped: 3600.000731. Running again
+2020-04-21 19:18:01,030 — src.utils.logging — INFO —_get_event_data:131 — Found 124 catalogues
+2020-04-21 19:19:06,637 — src.utils.logging — INFO —__init__:24 — Creating instance of MarketCatalogueLogger
+2020-04-21 19:19:07,046 — src.utils.logging — INFO —create_logger:41 — Executing create_logger()
+2020-04-21 19:19:07,046 — src.utils.logging — INFO —create_logger:51 — Market catalogue streamer created at 2020-04-21 19:19:07.046592
+2020-04-21 19:19:07,046 — src.utils.logging — INFO —start_logger:56 — Starting market catalogue streamer
+2020-04-21 19:19:07,047 — src.utils.logging — INFO —_logger:181 — Time since data was last scraped: 3600.000705. Running again
+2020-04-21 19:19:07,334 — src.utils.logging — INFO —_get_event_data:131 — Found 124 catalogues
+2020-04-21 19:19:51,991 — src.utils.logging — INFO —__init__:24 — Creating instance of MarketCatalogueLogger
+2020-04-21 19:19:52,425 — src.utils.logging — INFO —create_logger:41 — Executing create_logger()
+2020-04-21 19:19:52,426 — src.utils.logging — INFO —create_logger:51 — Market catalogue streamer created at 2020-04-21 19:19:52.426099
+2020-04-21 19:19:52,426 — src.utils.logging — INFO —start_logger:56 — Starting market catalogue streamer
+2020-04-21 19:19:52,430 — src.utils.logging — INFO —_logger:181 — Time since data was last scraped: 3600.004631. Running again
+2020-04-21 19:19:52,779 — src.utils.logging — INFO —_get_event_data:131 — Found 124 catalogues
+2020-04-21 19:20:04,178 — src.utils.logging — INFO —__init__:24 — Creating instance of MarketCatalogueLogger
+2020-04-21 19:20:04,812 — src.utils.logging — INFO —create_logger:41 — Executing create_logger()
+2020-04-21 19:20:04,813 — src.utils.logging — INFO —create_logger:51 — Market catalogue streamer created at 2020-04-21 19:20:04.812975
+2020-04-21 19:20:04,813 — src.utils.logging — INFO —start_logger:56 — Starting market catalogue streamer
+2020-04-21 19:20:04,818 — src.utils.logging — INFO —_logger:181 — Time since data was last scraped: 3600.006039. Running again
+2020-04-21 19:20:05,140 — src.utils.logging — INFO —_get_event_data:131 — Found 124 catalogues
+2020-04-21 19:20:11,461 — src.utils.logging — INFO —__init__:24 — Creating instance of MarketCatalogueLogger
+2020-04-21 19:20:11,897 — src.utils.logging — INFO —create_logger:41 — Executing create_logger()
+2020-04-21 19:20:11,898 — src.utils.logging — INFO —create_logger:51 — Market catalogue streamer created at 2020-04-21 19:20:11.897976
+2020-04-21 19:20:11,898 — src.utils.logging — INFO —start_logger:56 — Starting market catalogue streamer
+2020-04-21 19:20:11,908 — src.utils.logging — INFO —_logger:181 — Time since data was last scraped: 3600.011128. Running again
+2020-04-21 19:20:12,248 — src.utils.logging — INFO —_get_event_data:131 — Found 124 catalogues
+2020-04-21 19:22:03,175 — src.utils.logging — INFO —__init__:24 — Creating instance of MarketCatalogueLogger
+2020-04-21 19:22:03,627 — src.utils.logging — INFO —create_logger:41 — Executing create_logger()
+2020-04-21 19:22:03,628 — src.utils.logging — INFO —create_logger:51 — Market catalogue streamer created at 2020-04-21 19:22:03.628032
+2020-04-21 19:22:03,628 — src.utils.logging — INFO —start_logger:56 — Starting market catalogue streamer
+2020-04-21 19:22:03,632 — src.utils.logging — INFO —_logger:181 — Time since data was last scraped: 3600.00458. Running again
+2020-04-21 19:22:03,955 — src.utils.logging — INFO —_get_event_data:131 — Found 124 catalogues
+2020-04-21 19:22:18,564 — src.utils.logging — INFO —__init__:24 — Creating instance of MarketCatalogueLogger
+2020-04-21 19:22:18,986 — src.utils.logging — INFO —create_logger:41 — Executing create_logger()
+2020-04-21 19:22:18,987 — src.utils.logging — INFO —create_logger:51 — Market catalogue streamer created at 2020-04-21 19:22:18.987087
+2020-04-21 19:22:18,987 — src.utils.logging — INFO —start_logger:56 — Starting market catalogue streamer
+2020-04-21 19:22:18,992 — src.utils.logging — INFO —_logger:181 — Time since data was last scraped: 3600.006139. Running again
+2020-04-21 19:22:19,291 — src.utils.logging — INFO —_get_event_data:131 — Found 124 catalogues

@@ -1,5 +1,5 @@
-from src.data_retrieval_classes import MarketCatalogueLogger
-from settings import MARKET_PROJECTION, MARKET_TYPES, EVENT_TYPE_IDS, COUNTRY_CODES
+from bfex_scraper.src.data_retrieval_classes import MarketCatalogueLogger
+from bfex_scraper.settings import MARKET_PROJECTION, MARKET_TYPES, EVENT_TYPE_IDS, COUNTRY_CODES
 
 def test_s3_credentials():
     try:
@@ -16,7 +16,7 @@ def test_s3_credentials():
 
 def test_bfex_credentials():
     try:
-        from src.utils.betfair_tools import betfair_login
+        from bfex_scraper.src.utils.betfair_tools import betfair_login
         trading = betfair_login()
         trading.login()
     except:
@@ -24,7 +24,7 @@ def test_bfex_credentials():
 
 def test_list_market_catalogue():
     try:
-        from src.utils.betfair_tools import betfair_login
+        from bfex_scraper.src.utils.betfair_tools import betfair_login
         import betfairlightweight
         trading = betfair_login()
         trading.login()
@@ -48,8 +48,8 @@ def test_list_market_catalogue():
 
 def test_save_to_s3():
     import pandas as pd
-    from settings import PROJECT_DIR
-    from src.utils.s3_tools import s3_dir_exists
+    from bfex_scraper.settings import PROJECT_DIR
+    from bfex_scraper.src.utils.s3_tools import s3_dir_exists
     mcl = MarketCatalogueLogger()
     test_file_dir = f"{PROJECT_DIR}/tests/test_file.csv"
     test_file = pd.DataFrame([1,2])

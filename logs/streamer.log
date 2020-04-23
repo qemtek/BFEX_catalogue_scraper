@@ -1,7 +1,0 @@
-2020-04-21 11:48:08,720 — src.utils.logging — INFO —__init__:23 — Creating instance of MarketCatalogueLogger
-2020-04-21 11:49:00,968 — src.utils.logging — INFO —__init__:23 — Creating instance of MarketCatalogueLogger
-2020-04-21 11:49:01,496 — src.utils.logging — INFO —_save_to_s3:104 — test_file.csv exists: False
-2020-04-21 11:49:01,496 — src.utils.logging — INFO —_save_to_s3:108 — Saving file /Users/chriscollins/Documents/GitHub/betfair_exchange_data_engineering/tests/test_file.csv to test_file.csv
-2020-04-21 11:49:02,814 — src.utils.logging — INFO —_save_to_s3:114 — File found in S3, upload success.
-2020-04-21 11:51:35,769 — src.utils.logging — INFO —__init__:23 — Creating instance of MarketCatalogueLogger
-2020-04-21 11:51:36,403 — src.utils.logging — INFO —_save_to_s3:104 — test_file.csv exists: True

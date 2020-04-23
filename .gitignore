@@ -1,11 +1,9 @@
-data/*
-configuration.py
-old/*
+bfex_scraper/data/*
+bfex_scraper/configuration.py
+bfex_scraper/old/*
 .DS_Store
 venv/*
-tmp/*
+bfex_scraper/tmp/*
 .idea/*
 __pycache__/*
-venv/*
-.gitsecret/keys/random_seed
-!*.secret
+.tox/*

@@ -1,7 +1,7 @@
 import betfairlightweight
 
-from settings import BFEX_USERNAME, BFEX_PASSWORD, BFEX_APP_KEY, BFEX_CERTS_DIR
-from src.utils.logging import get_logger
+from bfex_scraper.settings import BFEX_USERNAME, BFEX_PASSWORD, BFEX_APP_KEY, BFEX_CERTS_DIR
+from bfex_scraper.src.utils.logging import get_logger
 
 # setup logging
 logger = get_logger()

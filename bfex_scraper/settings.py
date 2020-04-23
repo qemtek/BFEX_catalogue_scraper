@@ -1,7 +1,7 @@
 import os
 import logging
 
-from src.utils.configuration import get_attribute
+from bfex_scraper.src.utils.configuration import get_attribute
 
 # Project credentials
 PROJECT_DIR = get_attribute('PROJECT_DIR')

@@ -1,0 +1,15 @@
+MANIFEST.in
+requirements.txt
+setup.py
+./requirements.txt
+bfex_scraper/VERSION
+bfex_scraper/__init__.py
+bfex_scraper/configuration.py
+bfex_scraper/main.py
+bfex_scraper/settings.py
+bfex_scraper.egg-info/PKG-INFO
+bfex_scraper.egg-info/SOURCES.txt
+bfex_scraper.egg-info/dependency_links.txt
+bfex_scraper.egg-info/requires.txt
+bfex_scraper.egg-info/top_level.txt
+bfex_scraper/src/data_retrieval_classes.py

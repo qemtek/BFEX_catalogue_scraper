@@ -7,12 +7,12 @@ import pickle
 import threading
 
 import betfairlightweight
-from settings import PROJECT_DIR
-from src.utils.s3_tools import s3_dir_exists
-from src.utils.s3_tools import upload_to_s3
-from src.utils.utils import safe_open
-from src.utils.logging import get_logger
-from src.utils.betfair_tools import betfair_login
+from bfex_scraper.settings import PROJECT_DIR
+from bfex_scraper.src.utils.s3_tools import s3_dir_exists
+from bfex_scraper.src.utils.s3_tools import upload_to_s3
+from bfex_scraper.src.utils.utils import safe_open
+from bfex_scraper.src.utils.logging import get_logger
+from bfex_scraper.src.utils.betfair_tools import betfair_login
 
 logger = get_logger()
 

@@ -1,5 +1,5 @@
-from settings import MARKET_PROJECTION, MARKET_TYPES, EVENT_TYPE_IDS, COUNTRY_CODES
-from src.data_retrieval_classes import MarketCatalogueLogger
+from bfex_scraper.settings import MARKET_PROJECTION, MARKET_TYPES, EVENT_TYPE_IDS, COUNTRY_CODES
+from bfex_scraper.src.data_retrieval_classes import MarketCatalogueLogger
 
 scraper = MarketCatalogueLogger()
 # Create filters for the market catalogue
