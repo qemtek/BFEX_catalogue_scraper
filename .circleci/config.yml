@@ -10,13 +10,16 @@ jobs:
       - run:
           name: Build Project
           command: |
+            ls
             virtualenv venv
             . venv/bin/activate
             pip install --upgrade pip
             pip install -r requirements.txt
             # Unencrypt files
             git clone https://github.com/elasticdog/transcrypt.git
-            sudo ln -s transcrypt/transcrypt /usr/local/bin/transcrypt
+            cd transcrypt
+            sudo ln -s ${PWD}/transcrypt /usr/local/bin/transcrypt
+            cd ..
             transcrypt -c $TRANSCRYPT_CYPHER -p $TRANSCRYPT_PASSWORD
             # Override defaults
             export BFEX_CERTS_DIR = certs
