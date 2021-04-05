@@ -39,15 +39,13 @@ class MarketRecorder(BaseStrategy):
         if not os.path.isdir(self.local_dir):
             raise OSError("File dir %s does not exist" % self.local_dir)
         # create sub dir
-        directory = os.path.join(
-            self.local_dir, f"{self.context.get('marketType')}_{self.recorder_id}")
+        directory = os.path.join(self.local_dir, self.recorder_id)
         if not os.path.exists(directory):
             os.makedirs(directory)
 
     def process_raw_data(self, publish_time, data):
         market_id = data.get(self.MARKET_ID_LOOKUP)
-        file_directory = os.path.join(
-            self.local_dir, f"{self.context.get('marketType')}_{self.recorder_id}", market_id)
+        file_directory = os.path.join(self.local_dir, self.recorder_id, market_id)
         with open(file_directory, "a") as f:
             f.write(
                 json.dumps({"op": "mcm", "clk": None, "pt": publish_time, "mc": [data]})
@@ -67,8 +65,7 @@ class MarketRecorder(BaseStrategy):
                 return
         logger.info("Closing market %s" % market_id)
 
-        file_dir = os.path.join(
-            self.local_dir, f"{self.context.get('marketType')}_{self.recorder_id}", market_id)
+        file_dir = os.path.join(self.local_dir, self.recorder_id, market_id)
         market_definition = data.get("marketDefinition")
 
         # check that file actually exists
@@ -114,8 +111,7 @@ class MarketRecorder(BaseStrategy):
         """If gz > market_expiration old remove
         gz and txt file
         """
-        directory = os.path.join(
-            self.local_dir, f"{self.context.get('marketType')}_{self.recorder_id}")
+        directory = os.path.join(self.local_dir, self.recorder_id)
         for file in os.listdir(directory):
             if file.endswith(".gz"):
                 file_stats = os.stat(os.path.join(directory, file))
