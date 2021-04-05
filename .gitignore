@@ -2,10 +2,8 @@ bfex_scraper/data/*
 bfex_scraper/old/*
 .DS_Store
 venv/*
-bfex_scraper/tmp/*
 .idea/*
 __pycache__/*
 .tox/*
-bfex_scraper/configuration.py
 bfex_scraper/configuration.py
 *.pyc
