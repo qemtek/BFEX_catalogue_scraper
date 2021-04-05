@@ -6,3 +6,6 @@ bfex_scraper/tmp/*
 .idea/*
 __pycache__/*
 .tox/*
+bfex_scraper/configuration.py
+bfex_scraper/configuration.py
+*.pyc
