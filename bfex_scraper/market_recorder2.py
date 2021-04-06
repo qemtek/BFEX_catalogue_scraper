@@ -21,10 +21,10 @@ class MarketRecorder(BaseStrategy):
         BaseStrategy.__init__(self, *args, **kwargs)
         self._market_expiration = self.context.get("market_expiration", 3600)  # seconds
         self._remove_file = self.context.get(
-            "remove_file", False
+            "remove_file", True
         )  # remove txt file during cleanup
         self._remove_gz_file = self.context.get(
-            "remove_gz_file", False
+            "remove_gz_file", True
         )  # remove compressed file during cleanup
         self._force_update = self.context.get(
             "force_update", True
@@ -130,7 +130,10 @@ class MarketRecorder(BaseStrategy):
                             "Removing: %s, age: %ss"
                             % (gz_path, round(seconds_since, 2))
                         )
-                        os.remove(gz_path)
+                        try:
+                            os.remove(gz_path)
+                        except Exception as e:
+                            logger.info(f"Couldnt find file to remove at {gz_path}. Error: {e}")
 
     @staticmethod
     def _create_metadata(market_definition: dict) -> dict:
