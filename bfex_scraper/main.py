@@ -33,7 +33,7 @@ strategy = S3MarketRecorder(
     name="WIN",
     market_filter=betfairlightweight.filters.streaming_market_filter(
         event_type_ids=["7"],
-        country_codes=["GB", "IE"],
+        country_codes=["GB", "IE", "AU", "US"],
         market_types=["WIN"],
     ),
     stream_class=DataStream,
