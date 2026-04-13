@@ -3,6 +3,6 @@ betfairlightweight==2.12.1
 numpy==1.20.2
 pandas==1.2.3
 tenacity==5.0.3
-pytest==6.2.3
+pytest==9.0.3
 flumine==1.17.15
 python-json-logger==2.0.1
